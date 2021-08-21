@@ -1,0 +1,38 @@
+.ButtonContainer{
+ display:flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ background-color: #121417;
+
+}
+.ButtonLogout{
+    background-color: #FFB600;
+    padding:4%;
+    font-size: 25px;
+    border:none;
+    border-radius: 5px;
+
+}
+.ButtonCancel{
+    background-color:transparent;
+    padding:4%;
+    font-size: 25px;
+    color: #FFB600;
+    border:1px solid #FFB600;
+    border-radius: 5px;
+    margin-bottom: 50px;
+
+}
+.SocialLogo{
+    position:absolute;
+    right:0px;
+    bottom: 0px;
+    background-color: #121417;
+
+    padding: 15px;
+}
+
+.SocialLogo a{
+    padding: 15px;
+}
