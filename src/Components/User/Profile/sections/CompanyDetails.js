@@ -44,28 +44,28 @@ const CompanyDetails = ({ formData, setFormData, getUser, filled, setFilled, han
         // } else {
         //     setDisabled(1);
         seteditable(!editable)
-            if (!editable) {
-                setBtnTxt("Edit")
-                setFormData({ ...formData, company_detail_name: name, company_name: companyName, company_phone_no: phone, company_title: title, company_email_address: email, company_whatsapp_no: wpp })
-                if (validator.isMobilePhone(formData?.company_phone_no) && validator.isMobilePhone(formData?.company_whatsapp_no) && validator.isEmail(formData?.company_email_address)) {
-                    await axios.post(`${process.env.REACT_APP_URL}/user/updateUser/${userId}`, formData)
-                        .then(response => {
-                            getUser()
-                            setBtnTxt("Edit")
-                        })
-                    handleClickOpen()
+        if (!editable) {
+            setBtnTxt("Edit")
+            setFormData({ ...formData, company_detail_name: name, company_name: companyName, company_phone_no: phone, company_title: title, company_email_address: email, company_whatsapp_no: wpp })
+            if (validator.isMobilePhone(formData?.company_phone_no) && validator.isMobilePhone(formData?.company_whatsapp_no) && validator.isEmail(formData?.company_email_address)) {
+                await axios.post(`${process.env.REACT_APP_URL}/user/updateUser/${userId}`, formData)
+                    .then(response => {
+                        getUser()
+                        setBtnTxt("Edit")
+                    })
+                handleClickOpen()
+            }
+            else {
+                if (!validator.isEmail(formData?.company_email_address)) {
+                    notify("Enter Valid Email Address")
                 }
                 else {
-                    if (!validator.isEmail(formData?.company_email_address)) {
-                        notify("Enter Valid Email Address")
-                    }
-                    else {
-                        notify("Enter Valid Mobile Number/Whatsapp Number")
-                    }
+                    notify("Enter Valid Mobile Number/Whatsapp Number")
                 }
-            } else {
-                setBtnTxt("Save")
             }
+        } else {
+            setBtnTxt("Save")
+        }
         // }
     }
     useEffect(() => {
@@ -106,28 +106,19 @@ const CompanyDetails = ({ formData, setFormData, getUser, filled, setFilled, han
                 width: "100%",
             }}
         >
+           
             <Row>
-                <SectionTitle>Company Details</SectionTitle>
-                {/* <button
-                    style={{
-                        backgroundColor: "transparent",
-                        border: "none",
-                        cursor: "pointer",
-                        alignSelf: "flex-start",
-                        marginTop: ".8rem",
-                    }}
-                >
-                </button> */}
+                <Column className="inputs_coloum_group">company </Column>
+                <Column className="inputs_coloum_group">contact information</Column>
+                {/* <Column className="inputs_coloum_group">security</Column> */}
             </Row>
 
+            <hr />
             <Row className="input-orientation">
-                <Column
-                    style={{
-                        minWidth: "45%",
-                    }}
-                >
+                <Column className="inputs_coloum">
+                    <label htmlFor="">name</label>
                     <Input
-                        style={!editable?{color:"white"}:{color:"#727272"}}
+                        style={!editable ? { color: "white" } : { color: "#727272" }}
                         placeholder='Name'
                         autoComplete="off"
                         id='name'
@@ -136,6 +127,10 @@ const CompanyDetails = ({ formData, setFormData, getUser, filled, setFilled, han
                         onChange={(e) => setName(e.target.value)}
                         value={name}
                     />
+
+
+                    <label htmlFor="">Company Name</label>
+
                     <Input
                         style={!editable ? { color: "white" } : { color: "#727272" }}
                         placeholder='Company Name'
@@ -145,79 +140,71 @@ const CompanyDetails = ({ formData, setFormData, getUser, filled, setFilled, han
                         onChange={(e) => setCompanyName(e.target.value)}
                         value={companyName}
                         disabled={editable}
-                         autoComplete="off"
+                        autoComplete="off"
 
                     />
+
+
+                </Column>
+                <Column className="inputs_coloum">
+                    <label htmlFor="">Phone no</label>
+
                     <Input
-                        style={!editable?{color:"white"}:{color:"#727272"}}
+                        style={!editable ? { color: "white" } : { color: "#727272" }}
                         placeholder='Phone No.'
                         id='phone'
                         type='text'
                         onChange={(e) => setPhone(e.target.value)}
                         value={phone}
                         disabled={editable}
-                         autoComplete="off"
+                        autoComplete="off"
 
                     />
-                </Column>
-                <Column
-                    style={{
-                        minWidth: "45%",
-                    }}
-                >
+                    <label htmlFor="">Title</label>
                     <Input
-                        style={!editable?{color:"white"}:{color:"#727272"}}
+                        style={!editable ? { color: "white" } : { color: "#727272" }}
                         placeholder='Title'
                         id='title'
                         type='text'
                         onChange={(e) => setTitle(e.target.value)}
                         value={title}
                         disabled={editable}
-                         autoComplete="off"
+                        autoComplete="off"
 
                     />
+                </Column>
+                <Column className="inputs_coloum">
+                    <label htmlFor="">Email</label>
                     <Input
-                        style={!editable?{color:"white"}:{color:"#727272"}}
+                        style={!editable ? { color: "white" } : { color: "#727272" }}
                         placeholder='Email ID'
                         id='email'
                         type='text'
                         onChange={(e) => setEmail(e.target.value)}
                         value={email}
                         disabled={editable}
-                         autoComplete="off"
+                        autoComplete="off"
 
                     />
+                    <label htmlFor="">Fax no </label>
                     <Input
-                        style={!editable?{color:"white"}:{color:"#727272"}}
+                        style={!editable ? { color: "white" } : { color: "#727272" }}
                         placeholder='Whatsapp No.'
                         id='wpp'
                         type='text'
                         onChange={(e) => setWpp(e.target.value)}
                         value={wpp}
                         disabled={editable}
-                         autoComplete="off"
+                        autoComplete="off"
 
                     />
+
                 </Column>
             </Row>
-            {/* <Button
-                style={{
-                    position: "relative",
-                    left: "50%",
-                    transform: "translate(-50%)",
-                }}
-                onClick={handleformdata}
-            >
-                Save
-            </Button>
-             */}
+
             <button
                 onClick={handleformdata}
                 className="disabled_save_butn"
-                // className={`${disabled1 == 0 ? "disabled_save_butn_block  " : "disabled_save_butn "}`}
-            // disabled={!name || !phone || !wpp || !companyName || !title || !email}
-            // style={!disabled?{backgroundColor:"gray"}:{backgroundcolor: "#ffb600"}}
-            // disabled={disabled1}
             >
                 {btnTxt}
             </button>

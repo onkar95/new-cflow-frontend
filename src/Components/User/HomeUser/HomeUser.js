@@ -299,7 +299,7 @@ function HomeUser({ setIsUser, isSignup, setIsSignup }) {
     }, [])
 
     useEffect(() => {
-        if (currentSection === 4 && userId === undefined) {
+        if (currentSection === 5 && userId === undefined) {
             setIsUser(true)
             // alert('Please Login')
             history.push('/auth-user')

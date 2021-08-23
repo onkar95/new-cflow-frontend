@@ -30,6 +30,8 @@ const Help = () => {
                 style={{
                     resize: "none",
                     minHeight: "10rem",
+                    minWidth:"80%",
+                    backgroundColor:"#2d2d2d",
                 }}
                 placeholder='Tell Us More About Your Problem'
             ></Textarea>

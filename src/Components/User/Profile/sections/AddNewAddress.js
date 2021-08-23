@@ -4,6 +4,8 @@ import { Row, Column, Input, SectionTitle, Button } from "../../Styled/Styled";
 import axios from "axios";
 import "./Profile.css"
 import pincode from "pincode-distance"
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+
 require('dotenv').config()
 
 const AddNewAddress = ({ setCurrentSection, formData, setFormData, getUser, getSite, handleClickOpen }) => {
@@ -34,28 +36,12 @@ const AddNewAddress = ({ setCurrentSection, formData, setFormData, getUser, getS
     const handleformdata = async (e) => {
         e.preventDefault();
         console.log(editable)
-        // seteditable(!editable)
-        // if (!editable) {
-        //     console.log(editable+"inside to post")
-        //     setBtnTxt("Edit")
-            setSite({ ...site, building_name: buildingname, door_no: doorno, street: street, landmark: landmark, city: city, state: state, pin: pin, add_title: addtitle })
-            // if (buildingname !== "" && doorno !== "" && street !== "" && landmark !== "" && city !== "" && state !== "" && pin !== "" && addtitle !== "") {
-            await axios.post(`${process.env.REACT_APP_URL}/user/add_site/${userId}`, site)
-                .then(response => {
-                })
-            getSite();
-            setCurrentSection(7);
-            // }
-            // else {
-            //     alert("SITE DETAIL CANNOT BE EMPTY")
-            // }
-        // }else {
-        //     setBtnTxt("Save")
-           
-        // }
-
-
-
+        setSite({ ...site, building_name: buildingname, door_no: doorno, street: street, landmark: landmark, city: city, state: state, pin: pin, add_title: addtitle })
+        await axios.post(`${process.env.REACT_APP_URL}/user/add_site/${userId}`, site)
+            .then(response => {
+            })
+        getSite();
+        setCurrentSection(7);
         handleClickOpen();
     }
 
@@ -80,19 +66,31 @@ const AddNewAddress = ({ setCurrentSection, formData, setFormData, getUser, getS
             setDisabled(1);
         }
     }, [buildingname, doorno, street, landmark, city, state, pin, addtitle])
+    const handleClick = () => {
+        setCurrentSection(7)
+    }
     return (
         <form
             style={{
                 width: "100%",
             }}
         >
-
+            <div className="backArrow" onClick={handleClick}>
+                <span>
+                    <ArrowBackIosIcon />
+                </span>
+                <h4>back</h4>
+            </div>
+            <Row>
+                <div style={{ margin: "10px" }}>
+                    Add site Address
+                </div>
+            </Row>
             <Row className="input-orientation">
-                <Column
-                    style={{
-                        minWidth: "45%",
-                    }}
+
+                <Column className="inputs_coloum"
                 >
+
                     <Input
                         placeholder='Building Name'
                         id='name'
@@ -115,6 +113,20 @@ const AddNewAddress = ({ setCurrentSection, formData, setFormData, getUser, getS
 
                     />
                     <Input
+                        placeholder='H No / Door No'
+                        id='title'
+                        type='text'
+                        onChange={(e) => setDoorno(e.target.value)}
+                        value={doorno}
+                        style={{ marginBottom: "2rem" }}
+                        // disabled={editable}
+                        autoComplete="off"
+                    />
+                </Column>
+
+                <Column className="inputs_coloum">
+
+                    <Input
                         placeholder='City'
                         id='phone'
                         type='text'
@@ -134,22 +146,6 @@ const AddNewAddress = ({ setCurrentSection, formData, setFormData, getUser, getS
                         // disabled={editable}
                         autoComplete="off"
                     />
-                </Column>
-                <Column
-                    style={{
-                        minWidth: "45%",
-                    }}
-                >
-                    <Input
-                        placeholder='H No / Door No'
-                        id='title'
-                        type='text'
-                        onChange={(e) => setDoorno(e.target.value)}
-                        value={doorno}
-                        style={{ marginBottom: "2rem" }}
-                        // disabled={editable}
-                        autoComplete="off"
-                    />
                     <Input
                         placeholder='Landmark'
                         id='email'
@@ -160,6 +156,13 @@ const AddNewAddress = ({ setCurrentSection, formData, setFormData, getUser, getS
                         // disabled={editable}
                         autoComplete="off"
                     />
+                </Column>
+
+
+                <Column className="inputs_coloum"
+                >
+
+
                     <Input
                         placeholder='State'
                         id='wpp'
@@ -181,29 +184,15 @@ const AddNewAddress = ({ setCurrentSection, formData, setFormData, getUser, getS
                         autoComplete="off"
                     />
                 </Column>
+
             </Row>
-            {/* <Button
-                style={{
-                    position: "relative",
-                    left: "50%",
-                    transform: "translate(-50%)",
-                }}
-                onClick={handleformdata}
-            >
-                Save
-            </Button> */}
             <button
                 onClick={handleformdata}
                 className="disiabled_save_butn"
                 className={`${disabled1 == 0 ? "disiabled_save_butn_block  " : "disiabled_save_butn "}`}
                 disabled={!buildingname || !state || !addtitle || !city || !doorno || !landmark || !street || !pin}
-            // {...disabled?alert("enter"):null}
-            // disabled="true"
-            // style={!disabled?{backgroundColor:"gray"}:{backgroundcolor: "#ffb600"}}
-            // disabled={disabled1}
             >
-                 save
-
+                save
             </button>
         </form>
     );

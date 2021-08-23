@@ -1,51 +1,98 @@
-.sidemenu {
-  width: 15%;
-  padding: 1rem 0.7rem;
-  border-radius: 4px;
-  margin: 0 3rem 0 0;
-  background-color: #08090c;
-  justify-content: space-between;
-  max-height: 500px;
-}
-
-.main-row {
-  justify-content: center;
-  margin: 1rem auto;
-}
-
-.main-content {
-  width: 70%;
-  padding: 0.5rem 2.5rem;
-  border-radius: 4px;
-  background-color: #08090c;
-}
-
-.input-orientation {
-  justify-content: space-between;
-}
-
-.btn-container-edit-add {
-  justify-content: center;
-  align-items: center;
+.profile_navbar {
   display: flex;
-  /* flex-direction: column; */
+  margin: 5px;
+}
+
+.userInfo {
+  display: flex;
+}
+
+.info {
+  display: flex;
+  margin: 0 10px;
+}
+
+.info div {
+  margin: 0 10px;
+}
+
+.row {
+  display: flex;
+}
+.row button{
+  /* display: flex; */
+  background-color: transparent;
+  font-size: 20px;
+  width: 100px;
+  text-decoration: none;
+  /* border:orange solid 2px ; */
+  border:none ;
+  color: yellow;
+}
+.profile_sections {
+  background-color: black;
+}
+
+.profile_button {
+  /* display: flex; */
+  margin: 20px 10px;
+}
+
+.profile_button_nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile_button_nav button {
+  font-weight: 700;
+  background-color: transparent;
+  font-size: 20px;
+  text-decoration: none;
+  /* display: flex; */
+  border: none;
+  color: white;
+  margin: 0 20px;
+}
+
+.profile_button_nav1 {
+display: block;
+}
+
+.profile_button_nav2 {
+  display: block;
+}
+
+.main_content {
+  background-color: transparent;
   width: 100%;
+  margin: 10px;
 }
 
-.del-edit-add-btn {
-  margin-left: 1rem;
+.main_content input {
+  /* width: fit-content; */
+  width: 60%;
+  line-height: 2;
+  font-size: 15px;
 }
 
-.img-about-profile {
-  width: 25rem;
-  height: 20rem;
-  background-color: #fff;
-  border-radius: 4px;
-  margin-bottom: 1rem;
-  object-fit: cover;
+.inputs_coloum {
+  width: 34%;
+  font-size: 15px;
+  margin: 10px;
+}
+
+.inputs_coloum_group {
+  width: 34%;
+  font-size: 18px;
+}
+.siteAddress_btn{
+  display: flex;
+  flex-direction: column;
+
 }
 
 .disabled_save_butn {
+  line-height: 2;
   padding: 0.7rem 2rem;
   border-radius: 4px;
   background-color: #ffb600;
@@ -59,10 +106,11 @@
   transition: background 0.8s;
 }
 
-.disabled_save_butn:hover{
-    cursor: pointer;
-    background-color: #a87c0a;
+.disabled_save_butn:hover {
+  cursor: pointer;
+  background-color: #a87c0a;
 }
+
 .disabled_save_butn_block {
   padding: 0.7rem 2rem;
   border-radius: 4px;
@@ -87,85 +135,59 @@
   background-color: #2d2d2d;
 
 }
-.input{
+
+.input {
   color: #727272;
 }
 
-.email:hover ,.number:hover{
+.email:hover,
+.number:hover {
   cursor: not-allowed;
 }
 
-@media screen and (max-width: 1200px) {
-  .sidemenu {
-    width: 95%;
-    margin-bottom: 2rem;
-  }
-
-  .main-row {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .main-content {
-    width: 90%;
-  }
+.addressBook {
+  margin: 15px 70px;
 }
 
-@media screen and (max-width: 1000px) {
-  .input-orientation {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .main-content {
-    width: 80%;
-  }
-
-  .feedback-form {
-    width: 70% !important;
-  }
-
-  .about-profile-row {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .img-about-profile {
-    width: 20rem;
-    height: 15rem;
-  }
+.saved_address {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 80%;
+  margin: 5px 110px;
 }
 
-@media screen and (max-width: 800px) {
-  .main-content {
-    width: 80%;
-  }
+.address {
+  display: flex;
+  padding: 30px;
+  justify-content: space-between;
+  border: #2d2d2d solid 2px;
+  margin: 10px;
 }
 
-@media screen and (max-width: 430px) {
-  .disabled_save_butn {
-    position: relative;
-    left: 32%;
-  }
+.address_btn {
+  display: flex;
+
 }
 
-@media screen and (max-width: 400px) {
-  .main-content {
-    width: 70%;
-  }
+.address_btn span {
+  margin: 35px 20px;
+}
 
-  .feedback-form {
-    width: 55% !important;
-  }
+.rating_div{
+  display: flex;
+}
 
-  .img-about-profile {
-    width: 10rem;
-    height: 10rem;
-    margin-top: 1rem;
-  }
+.feedback_div{
+  display: flex;
+  width: 80%;
+}
+.feedback_div h3{
+margin: 10px;
+}
 
-  .disabled_save_butn {
-    position: relative;
-    left: 26%;
-  }
+.feedback_form{
+  background-color: #2d2d2d;
+  resize: "none";
+  min-height: "9rem";
+  width: "80%"
 }

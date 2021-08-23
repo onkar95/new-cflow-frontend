@@ -1,95 +1,98 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FiEdit } from "react-icons/fi";
 import { Row, Column, Input, SectionTitle, Button } from "../../Styled/Styled";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
-const AddressBook = ({setCurrentSection,site,setSiteNo}) => {
-    const handleEdit=(index)=>{
+const AddressBook = ({ setCurrentSection, siteNo, site, setSite, getSite, handleClickOpen, setSiteNo }) => {
+
+    const [userId, setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
+
+    const handleEdit = (index) => {
         setCurrentSection(8)
         setSiteNo(index)
+    }
+    const notify = (msg) => {
+        toast.error(msg, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    }
+    let temp;
+
+    
+    const handleDelete = async (e) => {
+        e.preventDefault();
+        alert("are you want to delete the address")
+
+        let arr = site.filter((item, index) => index !== siteNo)
+        setSite(arr)
+        await axios.post(`${process.env.REACT_APP_URL}/user/update_site/${userId}`, arr)
+            .then(response => {
+                getSite();
+                notify("address deleted sucessfully")
+            })
+
+
+        setCurrentSection(7)
 
     }
-    console.log(site,'site');
+    console.log(site, 'site');
     return (
-        <form
-            style={{
-                width: "100%",
-            }}
-        >
+        <div className="addressBook" >
             <Row>
-                <SectionTitle>Site Address Book</SectionTitle>
+                <Column className="inputs_coloum_group"> Site Address Book</Column>
             </Row>
+            <hr style={{ width: "100%" }} />
 
-            <Row style={{ justifyContent: "space-between" }}>
-                <Column
-                    style={{
-                        minWidth: "75%",
-                    }}
-                >   
+            <div className="saved_address">
                 {
-                    site?.map((value,index) => (
-                            <div style={{padding:"0.5rem"}}>
-                                <div style={{justifyContent: "space-between" , display: "flex" }}> 
-                                    <div style={{
-                                        fontWeight:"200"
-                                        }}>
-                                Site {index+1}
-                        </div>
-                        <FiEdit style={{color: "#FFB600" , cursor:"pointer"}}  onClick={()=>handleEdit(index)}/>
-                    </div>
-                    <div style={{
-                            backgroundColor:"transparent",
-                            border: "1px solid white",
-                            padding: "2%",
-                            boxShadow:"1px 1px white",
-                            borderRadius: "8px",
-                    }}>
-                        <h2 style={{
-                            fontWeight: "200",
-                            fontSize:"1rem",
-                            margin:'0'
-                        }}> 
-                            {value?.add_title}
-                        </h2>
-                        <h2 style={{
-                            fontWeight: "200",
-                            fontSize:"1rem",
-                            margin:'0'
-                        }}> 
-                            {value?.door_no}
-                        </h2>
-                        <h2 style={{
-                            fontWeight: "200",
-                            fontSize:"1rem",
-                            margin:'0'
-                        }}> 
-                            {value?.building_name}
-                        </h2>
-                        <h2 style={{
-                            fontWeight: "200",
-                            fontSize:"1rem",
-                            margin:'0'
-                        }}> 
-                            {value?.street} {value?.city}
-                        </h2>
-                        <h2 style={{
-                            fontWeight: "200",
-                            fontSize:"1rem",
-                            margin:'0'
-                        }}> 
-                            {value?.state}
-                        </h2>
-                    </div>
-                    </div>
-                    ))
-                  
-                }
-                    
+                    site?.map((value, index) => (
+                        <div className="address">
+                            <div className="address_details">
+                                <h1>
+                                    Site Address {index + 1}
+                                </h1>
+                                <h5>
+                                    {value?.building_name},{value?.city}
+                                </h5>
+                            </div>
+                            <div className="address_btn">
+                                <div className="btn-container-edit-add">
+                                    <FiEdit style={{ color: "#FFB600", cursor: "pointer" }} onClick={() => handleEdit(index)} />
 
-                    
-                </Column>
-                
-            </Row>
+                                    <Button
+                                        className="del-edit-add-btn"
+                                        style={{
+                                            // position: "relative",
+                                            // left: "47%",
+                                            // transform: "translate(-50%)",
+                                            backgroundColor: "transparent",
+                                            border: "1px solid #FFB600",
+                                            color: "#FFB600"
+                                        }}
+                                        onClick={handleDelete}
+                                    >
+                                        Delete
+                                    </Button>
+                                </div>
+                            </div>
+
+                        </div>
+                    ))
+                }
+            </div>
+
+
+            <ToastContainer />
+
             <Button
                 style={{
                     position: "relative",
@@ -101,7 +104,7 @@ const AddressBook = ({setCurrentSection,site,setSiteNo}) => {
             >
                 Add New Address
             </Button>
-        </form>
+        </div >
     );
 };
 

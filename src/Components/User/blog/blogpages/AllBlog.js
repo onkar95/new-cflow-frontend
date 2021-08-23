@@ -1,12 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BlogBox from './BlogBox'
 import '../blog.css'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
-const AllBlog = ({ setCurrentSection, blogData }
+const AllBlog = ({  blogData, setCurrentSection, blogID }
 ) => {
     const handleClick = () => {
         setCurrentSection(0)
+    }
+    const [BlogData, setBlogData] = useState(blogData)
+    const [BlogID, setBlogID] = useState()
+    // const blogID = () => {
+
+    // }
+    function showBlog(key) {
+        setBlogID(key)
+        blogID(key)
+        setCurrentSection(2);
+
+        //   return   <BlogDetails id={id} />;
     }
     return (
         <>
@@ -19,8 +31,9 @@ const AllBlog = ({ setCurrentSection, blogData }
             <div className="allBlogs">
                 {
                     blogData && blogData.map((val, key) => (
-                        <BlogBox index={key} title={val.title} description={val.description} img={val.image.url} />
-                    ))
+                        <div onClick={() => showBlog(key)}>
+                            <BlogBox index={key} updated_at={val.updated_at} title={val.title} description={val.description} img={val.image.url} />
+                        </div>))
                 }
             </div>
         </>

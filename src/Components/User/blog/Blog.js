@@ -54,7 +54,7 @@ function Blog({ setCurrentSectionRequest, site, getAllVendor, currentSection, se
     return (
         <div className="blog">
             {currentSection === 0 && <BlogSections blogID={blogID} blogData={blogData} setCurrentSection={setCurrentSection} setCurrentSectionProfile={setCurrentSectionProfile} setOpenSaved={setOpenSaved} setCurrentSectionRequest={setCurrentSectionRequest} site={site} handleClickOpen={handleClickOpen} />}
-            {currentSection === 1 && <AllBlog blogData={blogData} setCurrentSection={setCurrentSection} setCurrentSectionProfile={setCurrentSectionProfile} setOpenSaved={setOpenSaved} setCurrentSectionRequest={setCurrentSectionRequest} site={site} handleClickOpen={handleClickOpen} />}
+            {currentSection === 1 && <AllBlog blogID={blogID} IdOfBlog={IdOfBlog} blogData={blogData} setCurrentSection={setCurrentSection} setCurrentSectionProfile={setCurrentSectionProfile} setOpenSaved={setOpenSaved} setCurrentSectionRequest={setCurrentSectionRequest} site={site} handleClickOpen={handleClickOpen} />}
             {currentSection === 2 && <BlogDetails blogID={blogID} IdOfBlog={IdOfBlog} blogData={blogData} setCurrentSection={setCurrentSection} setCurrentSectionProfile={setCurrentSectionProfile} setOpenSaved={setOpenSaved} setCurrentSectionRequest={setCurrentSectionRequest} site={site} handleClickOpen={handleClickOpen} />}
         </div>
 

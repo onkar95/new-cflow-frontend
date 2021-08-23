@@ -8,7 +8,7 @@ const ProfilePercent = ({filled}) => {
         series: [percent],
         options: {
             chart: {
-                height: 170,
+                height: 270,
                 type: "radialBar",
                 fontFamily: "Open Sans, Arial, sans-serif",
                 foreColor: "#ffb600",
@@ -79,7 +79,7 @@ const ProfilePercent = ({filled}) => {
             options={chartOptions.options}
             series={chartOptions.series}
             type='radialBar'
-            height={170}
+            height={270}
         />
     );
 };

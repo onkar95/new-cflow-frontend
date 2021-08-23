@@ -180,25 +180,15 @@ const PersonalDetails = ({ formData, setFormData, getUser, filled, setFilled, ha
             }}
         >
             <Row>
-                <SectionTitle>Personal Details</SectionTitle>
-                {/* <button
-                    style={{
-                        backgroundColor: "transparent",
-                        border: "none",
-                        cursor: "pointer",
-                        alignSelf: "flex-start",
-                        marginTop: ".8rem",
-                    }}
-                >
-                </button> */}
+                <Column className="inputs_coloum_group">Personal information</Column>
+                <Column className="inputs_coloum_group"></Column>
+                <Column className="inputs_coloum_group">security</Column>
             </Row>
 
+            <hr />
             <Row className="input-orientation">
-                <Column
-                    style={{
-                        minWidth: "45%",
-                    }}
-                >
+                <Column className="inputs_coloum">
+                    <label htmlFor="">name</label>
                     <Input
                         placeholder='Name'
                         id='name'
@@ -210,48 +200,8 @@ const PersonalDetails = ({ formData, setFormData, getUser, filled, setFilled, ha
                         onChange={(e) => setName(e.target.value)}
                         value={name}
                     />
-                    <input
-                        // style={{ backgroundColor: "orange", color: "black" }}
-                        className="number"
-                        placeholder='Phone No.'
-                        autoComplete="off"
-                        disabled={editable}
-                        autoComplete="off"
-                        style={!editable ? { color: "white" } : { color: "#727272" }}
 
-                        id='phone'
-                        type='text'
-                        // onChange={(e) => setPhone(e.target.value)}
-                        value={phone}
-                        onClick={phoneClick}
-                    />
-                    <Input
-                        disabled={editable}
-                        autoComplete="off"
-                        style={!editable ? { color: "white" } : { color: "#727272" }}
-
-                        placeholder='City'
-                        id='city'
-                        type='text'
-                        onChange={(e) => setCity(e.target.value)}
-                        value={city}
-                    />
-                    <Input
-                        disabled={editable}
-                        autoComplete="off"
-                        style={!editable ? { color: "white" } : { color: "#727272" }}
-                        placeholder='PIN'
-                        id='pin'
-                        type='text'
-                        onChange={(e) => setPin(e.target.value)}
-                        value={pin}
-                    />
-                </Column>
-                <Column
-                    style={{
-                        minWidth: "45%",
-                    }}
-                >
+                    <label htmlFor="">Email</label>
 
                     <input
                         className="email"
@@ -268,6 +218,28 @@ const PersonalDetails = ({ formData, setFormData, getUser, filled, setFilled, ha
                         value={email}
                         onClick={emailClick}
                     />
+
+
+                </Column>
+                <Column className="inputs_coloum">
+                    <label htmlFor="">Phone no</label>
+
+                    <input
+                        // style={{ backgroundColor: "orange", color: "black" }}
+                        className="number"
+                        placeholder='Phone No.'
+                        autoComplete="off"
+                        disabled={editable}
+                        autoComplete="off"
+                        style={!editable ? { color: "white" } : { color: "#727272" }}
+
+                        id='phone'
+                        type='text'
+                        // onChange={(e) => setPhone(e.target.value)}
+                        value={phone}
+                        onClick={phoneClick}
+                    />
+                    <label htmlFor="">Whatsapp no</label>
                     <Input
                         placeholder='Whatsapp No.'
                         id='wpp'
@@ -279,10 +251,13 @@ const PersonalDetails = ({ formData, setFormData, getUser, filled, setFilled, ha
                         style={!editable ? { color: "white" } : { color: "#727272" }}
 
                     />
+                </Column>
+                <Column className="inputs_coloum">
+                    <label htmlFor="">PAssword</label>
                     <Input
                         placeholder='State'
                         id='state'
-                        type='text'
+                        type='password'
                         onChange={(e) => setState(e.target.value)}
                         value={state}
                         disabled={editable}
@@ -294,10 +269,11 @@ const PersonalDetails = ({ formData, setFormData, getUser, filled, setFilled, ha
 
                 </Column>
             </Row>
+
             <button
                 onClick={handleformdata}
                 // className={`${disabled1 == 0 ? "disabled_save_butn_block  " : "disabled_save_butn "}`}
-            className="disabled_save_butn"
+                className="disabled_save_butn"
             // disabled={!name || !wpp || !city || !pin || !state}
             >
                 {btnTxt}
