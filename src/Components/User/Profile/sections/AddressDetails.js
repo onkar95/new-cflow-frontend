@@ -3,6 +3,8 @@ import { FiEdit } from "react-icons/fi";
 import { Row, Column, Input, SectionTitle, Button } from "../../Styled/Styled";
 import axios from "axios";
 import "./Profile.css"
+import EditIcon from "../../../../Images/newProfileYellow/Edit profile.png"
+
 require('dotenv').config()
 const AdressDetails = ({ formData, setFormData, getUser, filled, setFilled, handleClickOpen }) => {
 
@@ -59,101 +61,179 @@ const AdressDetails = ({ formData, setFormData, getUser, filled, setFilled, hand
 
 
     return (
-        <form
-            style={{
-                width: "100%",
-            }}
-        >
-            <Row>
-                <Column className="inputs_coloum_group">Address </Column>
-            </Row>
-            <hr />
-            <Row className="input-orientation">
-                <Column className="inputs_coloum">
+        <>
+            {window.innerWidth > 600 ?
+                <form
+                    style={{
+                        width: "100%",
+                    }}
+                >
+                    <Row>
+                        <Column className="inputs_coloum_group">Address </Column>
+                    </Row>
+                    <hr />
+                    <Row className="input_orientation">
+                        <Column className="inputs_coloum">
 
-                    <label htmlFor="">Building Name</label>
-                    <Input
-                        placeholder='Building Name'
-                        id='building'
-                        type='text'
-                        onChange={(e) => setBuilding(e.target.value)}
-                        value={building}
-                    />
-                    <label htmlFor="">Area / Street</label>
-                    <Input
-                        placeholder='Area / Street'
-                        id='area'
-                        type='text'
-                        onChange={(e) => setArea(e.target.value)}
-                        value={area}
-                    />
-                    <label htmlFor="">H.No / Door.No</label>
-                    <Input
-                        placeholder='H.No / Door.No'
-                        id='house_door'
-                        type='text'
-                        onChange={(e) => setHouse(e.target.value)}
-                        value={house_door}
-                    />
-                </Column>
-                <Column className="inputs_coloum">
-                    <label htmlFor="">City</label>
-                    <Input
-                        placeholder='City'
-                        id='city'
-                        type='text'
-                        onChange={(e) => setCity(e.target.value)}
-                        value={city}
-                    />
-                    <label htmlFor="">PIN</label>
-                    <Input
-                        placeholder='PIN'
-                        id='pin'
-                        type='text'
-                        onChange={(e) => setPin(e.target.value)}
-                        value={pin}
-                    />
+                            <label htmlFor="">Building Name</label>
+                            <Input
+                                placeholder='Building Name'
+                                id='building'
+                                type='text'
+                                onChange={(e) => setBuilding(e.target.value)}
+                                value={building}
+                            />
+                            <label htmlFor="">Area / Street</label>
+                            <Input
+                                placeholder='Area / Street'
+                                id='area'
+                                type='text'
+                                onChange={(e) => setArea(e.target.value)}
+                                value={area}
+                            />
+                            <label htmlFor="">H.No / Door.No</label>
+                            <Input
+                                placeholder='H.No / Door.No'
+                                id='house_door'
+                                type='text'
+                                onChange={(e) => setHouse(e.target.value)}
+                                value={house_door}
+                            />
+                        </Column>
+                        <Column className="inputs_coloum">
+                            <label htmlFor="">City</label>
+                            <Input
+                                placeholder='City'
+                                id='city'
+                                type='text'
+                                onChange={(e) => setCity(e.target.value)}
+                                value={city}
+                            />
+                            <label htmlFor="">PIN</label>
+                            <Input
+                                placeholder='PIN'
+                                id='pin'
+                                type='text'
+                                onChange={(e) => setPin(e.target.value)}
+                                value={pin}
+                            />
 
-                    <label htmlFor="">Landmark</label>
-                    <Input
-                        placeholder='Landmark'
-                        id='landmark'
-                        type='text'
-                        onChange={(e) => setLandmark(e.target.value)}
-                        value={landmark}
-                    />
+                            <label htmlFor="">Landmark</label>
+                            <Input
+                                placeholder='Landmark'
+                                id='landmark'
+                                type='text'
+                                onChange={(e) => setLandmark(e.target.value)}
+                                value={landmark}
+                            />
 
-                </Column>
-                <Column className="inputs_coloum">
-                    <label htmlFor="">State</label>
-                    <Input
-                        placeholder='State'
-                        id='state'
-                        type='text'
-                        onChange={(e) => setState(e.target.value)}
-                        value={state}
-                    />
-                </Column>
-            </Row>
-            {/* <Button
-                style={{
-                    position: "relative",
-                    left: "50%",
-                    transform: "translate(-50%)",
-                }}
-                onClick={handleformdata}
-            >
-                Save
-            </Button> */}
-            <button
-                onClick={handleformdata}
-                className="disiabled_save_butn  "
-                disabled={!building || !state || !area || !city || !house_door || !landmark | !pin}
-            // style={!disabled?{backgroundColor:"gray"}:{backgroundcolor: "#ffb600"}}
-            // disabled={disabled1}
-            >{formData.email ? edit : Save}
-            </button>
-        </form>
+                        </Column>
+                        <Column className="inputs_coloum">
+                            <label htmlFor="">State</label>
+                            <Input
+                                placeholder='State'
+                                id='state'
+                                type='text'
+                                onChange={(e) => setState(e.target.value)}
+                                value={state}
+                            />
+                        </Column>
+                    </Row>
+                    <div
+                       onClick={handleformdata}
+                       className="disabled_save_butn  "
+                       disabled={!building || !state || !area || !city || !house_door || !landmark | !pin}
+                    >
+                        <img src={EditIcon} alt="" style={{height:"20px",marginRight:"2px"}}/>
+                        {formData.email ? edit : Save}
+                    </div>
+                </form>
+                :
+                <form
+                    style={{
+                        width: "100%",
+                    }}
+                >
+                    <Row>
+                        <Column className="inputs_coloum_group">Address </Column>
+                    </Row>
+                    <hr />
+                    <Row className="input_orientation">
+                        <Column className="inputs_coloum">
+
+                            <label htmlFor="">Building Name</label>
+                            <Input
+                                placeholder='Building Name'
+                                id='building'
+                                type='text'
+                                onChange={(e) => setBuilding(e.target.value)}
+                                value={building}
+                            />
+                            <label htmlFor="">Area / Street</label>
+                            <Input
+                                placeholder='Area / Street'
+                                id='area'
+                                type='text'
+                                onChange={(e) => setArea(e.target.value)}
+                                value={area}
+                            />
+                            
+                            <label htmlFor="">H.No / Door.No</label>
+                            <Input
+                                placeholder='H.No / Door.No'
+                                id='house_door'
+                                type='text'
+                                onChange={(e) => setHouse(e.target.value)}
+                                value={house_door}
+                            />
+                            <label htmlFor="">City</label>
+                            <Input
+                                placeholder='City'
+                                id='city'
+                                type='text'
+                                onChange={(e) => setCity(e.target.value)}
+                                value={city}
+                            />
+                            <label htmlFor="">PIN</label>
+                            <Input
+                                placeholder='PIN'
+                                id='pin'
+                                type='text'
+                                onChange={(e) => setPin(e.target.value)}
+                                value={pin}
+                            />
+
+                            <label htmlFor="">Landmark</label>
+                            <Input
+                                placeholder='Landmark'
+                                id='landmark'
+                                type='text'
+                                onChange={(e) => setLandmark(e.target.value)}
+                                value={landmark}
+                            />
+
+                            <label htmlFor="">State</label>
+                            <Input
+                                placeholder='State'
+                                id='state'
+                                type='text'
+                                onChange={(e) => setState(e.target.value)}
+                                value={state}
+                            />
+                        </Column>
+                    </Row>
+                    <div
+                       onClick={handleformdata}
+                       className="disabled_save_butn  "
+                       disabled={!building || !state || !area || !city || !house_door || !landmark | !pin}
+                    >
+                        <img src={EditIcon} alt="" style={{height:"20px",marginRight:"2px"}}/>
+                        {formData.email ? edit : Save}
+                    </div>
+                </form>
+
+            }
+        </>
     );
 };
 

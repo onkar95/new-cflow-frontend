@@ -3,8 +3,17 @@
   margin: 5px;
 }
 
+.userdetail {
+  display: flex;
+  flex-direction: column;
+}
+
 .userInfo {
   display: flex;
+}
+
+.usersActivity {
+  margin: 10px;
 }
 
 .info {
@@ -19,28 +28,44 @@
 .row {
   display: flex;
 }
-.row button{
-  /* display: flex; */
+
+.row h3 {
+  display: flex;
   background-color: transparent;
   font-size: 20px;
-  width: 100px;
   text-decoration: none;
-  /* border:orange solid 2px ; */
-  border:none ;
+  border: orange solid 2px;
   color: yellow;
+  margin-top: 6%;
+  margin-left: 5px;
+  height: fit-content;
+  margin-top: 30px;
+  min-width: fit-content;
+  padding: 3px;
+  border-radius: 10px;
 }
+
+
 .profile_sections {
   background-color: black;
+  margin: 14px 0;
 }
 
 .profile_button {
   /* display: flex; */
-  margin: 20px 10px;
+  width: 100%;
+  /* margin: 20px 10px; */
+  overflow: hidden;
+}
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
 }
 
 .profile_button_nav {
   display: flex;
   justify-content: space-between;
+  overflow-x: scroll;
 }
 
 .profile_button_nav button {
@@ -51,15 +76,27 @@
   /* display: flex; */
   border: none;
   color: white;
-  margin: 0 20px;
+  /* margin: 0 20px; */
+  margin-right: 20px;
 }
 
+
+
 .profile_button_nav1 {
-display: block;
+  display: flex;
+  /* width: 100%; */
 }
 
 .profile_button_nav2 {
-  display: block;
+  display: flex;
+  /* width: 100%; */
+
+}
+
+.profile_button_div {
+  display: flex;
+  align-items: center;
+  width: max-content;
 }
 
 .main_content {
@@ -85,25 +122,26 @@ display: block;
   width: 34%;
   font-size: 18px;
 }
-.siteAddress_btn{
+
+.siteAddress_btn {
   display: flex;
   flex-direction: column;
 
 }
 
 .disabled_save_butn {
-  line-height: 2;
+  display: flex;
+  align-items: center;
   padding: 0.7rem 2rem;
   border-radius: 4px;
   background-color: #ffb600;
   color: black;
-  border-style: none;
-  margin-top: 1rem;
   margin-bottom: 1rem;
   position: relative;
   left: 43%;
   transform: "translate(-50%)";
   transition: background 0.8s;
+  width: max-content;
 }
 
 .disabled_save_butn:hover {
@@ -123,6 +161,7 @@ display: block;
   transform: "translate(-50%)";
   cursor: not-allowed;
   background-color: "gray"
+  
 }
 
 .email,
@@ -148,7 +187,16 @@ display: block;
 .addressBook {
   margin: 15px 70px;
 }
-
+.edit_icon{
+  background-color: #f5b81d;
+  padding: 8px;
+  transform: "translate(-50%)";
+  border-radius: 7px;
+}
+.delete_icon{
+  border: rgb(240, 16, 16) solid 2px;
+  padding: 5px;
+}
 .saved_address {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -166,6 +214,7 @@ display: block;
 
 .address_btn {
   display: flex;
+  align-items: center;
 
 }
 
@@ -173,21 +222,319 @@ display: block;
   margin: 35px 20px;
 }
 
-.rating_div{
+.feedback_section {
   display: flex;
+  justify-content: space-between;
 }
 
-.feedback_div{
+.rating_div {
+  display: "block";
+  width: "30%";
+  margin-left: "10px";
+  margin: 0 30px;
+
+}
+
+.feedback_div {
   display: flex;
   width: 80%;
 }
-.feedback_div h3{
-margin: 10px;
+
+.feedback_div h3 {
+  margin: 10px;
 }
 
-.feedback_form{
+.feedback_form {
   background-color: #2d2d2d;
   resize: "none";
   min-height: "9rem";
   width: "80%"
+}
+
+.help {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.help_ques_div {
+  width: 40%;
+}
+
+.help_ques_div ans {
+  color: rgb(49, 46, 46);
+}
+
+.help_text_div {
+  width: 50%;
+}
+.help_btns{
+  display: flex;
+  margin: 5px;
+}
+
+@media(max-width:1150px) {
+  .profile_button_nav button {
+    margin: 0 10px;
+  }
+  .help_btns div{
+    left: 40%;
+  }
+
+
+}
+
+@media(max-width:1050px) {
+  .help_btns div{
+    left: 20%;
+  }
+
+  .profile_button_nav button {
+    margin-left: -5px;
+    font-size: 16px;
+  }
+  .info {
+    /* display: flex;
+    flex-direction: column; */
+    display: block;
+    margin: 0 5px;
+  }
+
+  .info div {
+    margin: 0;
+  }
+
+  element.style {
+    color: rgb(114, 114, 114);
+  }
+
+  .main_content input {
+    width: auto;
+  }
+
+  .main_content {}
+
+  .inputs_coloum {
+    width: 30%;
+    font-size: 15px;
+    margin: 10px;
+  }
+
+  .input_orientation {
+    display: flex;
+  }
+
+  .address {
+    display: block;
+    padding: 30px;
+    justify-content: space-between;
+    border: #2d2d2d solid 2px;
+    margin: 28px;
+  }
+}
+
+@media(max-width:950px) {
+  .help_btns div{
+    left: 10%;
+  }
+  .rating_div {
+    margin: 0;
+  }
+
+  .address {
+    display: block;
+    padding: 30px;
+    justify-content: space-between;
+    border: #2d2d2d solid 2px;
+    margin: 8px;
+  }
+
+  .saved_address {
+    width: 100%;
+    margin: 3px 15px;
+  }
+
+  .profile_button_nav button {
+    font-weight: 300;
+    font-size: 17px;
+    /* margin: 0 2px; */
+  }
+
+  .userInfo {
+    font-size: 15px;
+  }
+
+  .usersActivity,
+  .userInfo h1 {
+    font-size: 15px;
+  }
+
+  .profilePercent {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+  }
+
+  .row h3 {
+    /* display: flex; */
+    margin-top: 3%;
+    margin-left: 5px;
+    height: fit-content;
+  }
+}
+
+@media(max-width:600px) {
+  .help_btns div{
+    left: 0%;
+    /* width: 80px; */
+    padding: 12px;
+  }
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .row h3 {
+    /* display: flex; */
+    margin-top: 6%;
+    margin-left: 5px;
+    height: fit-content;
+  }
+
+  .profile_navbar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .userInfo {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .userdetail {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .userdetail div {
+    margin: 0 10px;
+  }
+
+  .profile_button {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+  }
+
+  .profile_button button {
+    font-weight: 700;
+    background-color: transparent;
+    font-size: 20px;
+    text-decoration: none;
+    /* display: flex; */
+    border: none;
+    color: white;
+    /* margin: 0 5px; */
+    margin-right: 20px;
+    min-width: max-content;
+
+  }
+
+  .inputs_coloum {
+    width: 100%;
+    font-size: 15px;
+    margin: 10px;
+  }
+
+  .address {
+    padding: 2px;
+    display: flex;
+  }
+  .edit_icon{
+    background-color: #f5b81d;
+    padding: 4px;
+    transform: "translate(-50%)";
+    border-radius: 7px;
+  }
+  .delete_icon{
+    border: rgb(240, 16, 16) solid 2px;
+    padding: 0px;
+  }
+  .addressBook {
+    margin: 0;
+  }
+
+  .saved_address {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    /* margin: 5px 110px; */
+  }
+
+  .address_details {
+    line-height: 1;
+    font-size: 10px;
+  }
+
+  .address_btn {
+    display: flex;
+  }
+
+  .address_btn span {
+    margin: 0;
+  }
+
+  .feedback_section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .rating_div h3 div {
+    margin: 0;
+  }
+
+  .feedback_div {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .help {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .help_ques_div {
+    width: 100%;
+  }
+
+  .help_ques_div ans {
+    color: rgb(49, 46, 46);
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+  }
+
+  .help_text_div {
+    width: 90%;
+    min-width: 75%;
+  }
+
+  .usersActivity {
+    border: #727272 solid 2px;
+  }
+}
+
+@media(max-width:400px) {
+  .help_text_div {
+    width: 70%;
+    min-width: 75%;
+  }
+
 }

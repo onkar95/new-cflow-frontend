@@ -4,7 +4,9 @@ import { FiEdit } from "react-icons/fi";
 import { Row, Column, Input, SectionTitle, Button } from "../../Styled/Styled";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import EditIcon from "../../../../Images/newProfileYellow/Edit profile.png"
+import DeleteIcon from "../../../../Images/newProfileYellow/Delete.png"
+import AddIcon from "../../../../Images/newProfileYellow/add new address.png"
 
 const AddressBook = ({ setCurrentSection, siteNo, site, setSite, getSite, handleClickOpen, setSiteNo }) => {
 
@@ -27,7 +29,7 @@ const AddressBook = ({ setCurrentSection, siteNo, site, setSite, getSite, handle
     }
     let temp;
 
-    
+
     const handleDelete = async (e) => {
         e.preventDefault();
         alert("are you want to delete the address")
@@ -65,23 +67,12 @@ const AddressBook = ({ setCurrentSection, siteNo, site, setSite, getSite, handle
                                 </h5>
                             </div>
                             <div className="address_btn">
-                                <div className="btn-container-edit-add">
-                                    <FiEdit style={{ color: "#FFB600", cursor: "pointer" }} onClick={() => handleEdit(index)} />
-
-                                    <Button
-                                        className="del-edit-add-btn"
-                                        style={{
-                                            // position: "relative",
-                                            // left: "47%",
-                                            // transform: "translate(-50%)",
-                                            backgroundColor: "transparent",
-                                            border: "1px solid #FFB600",
-                                            color: "#FFB600"
-                                        }}
-                                        onClick={handleDelete}
-                                    >
-                                        Delete
-                                    </Button>
+                                {/* <div className="btn-container-edit-add"> */}
+                                <div className="del-edit-add-btn edit_icon" onClick={() => handleEdit(index)} >
+                                    <img src={EditIcon} alt="" />
+                                </div>
+                                <div className="del-edit-add-btn delete_icon" onClick={handleDelete} >
+                                    <img src={DeleteIcon} alt="" />
                                 </div>
                             </div>
 
@@ -93,17 +84,15 @@ const AddressBook = ({ setCurrentSection, siteNo, site, setSite, getSite, handle
 
             <ToastContainer />
 
-            <Button
-                style={{
-                    position: "relative",
-                    left: "50%",
-                    transform: "translate(-50%)",
-                    // top:"60%"
-                }}
+            <div
                 onClick={() => setCurrentSection(9)}
+                // className={`${disabled1 == 0 ? "disabled_save_butn_block  " : "disabled_save_butn "}`}
+                className="disabled_save_butn"
+            // disabled={!name || !wpp || !city || !pin || !state}
             >
+                <img src={AddIcon} alt="" style={{ height: "20px", marginRight: "2px" }} />
                 Add New Address
-            </Button>
+            </div>
         </div >
     );
 };

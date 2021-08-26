@@ -7,6 +7,8 @@ import validator from 'validator'
 import "./Profile.css"
 import { makeStyles } from '@material-ui/core/styles';
 import Pincode from "react-pincode";
+import EditIcon from "../../../../Images/newProfileYellow/Edit profile.png"
+
 require('dotenv').config()
 
 
@@ -174,113 +176,225 @@ const PersonalDetails = ({ formData, setFormData, getUser, filled, setFilled, ha
     // console.log(formData.email);
 
     return (
-        <form
-            style={{
-                width: "100%",
-            }}
-        >
-            <Row>
-                <Column className="inputs_coloum_group">Personal information</Column>
-                <Column className="inputs_coloum_group"></Column>
-                <Column className="inputs_coloum_group">security</Column>
-            </Row>
+        <>
+            {window.innerWidth > 600 ?
+                <div>
+                    <Row>
+                        <Column className="inputs_coloum_group">Personal information</Column>
+                        <Column className="inputs_coloum_group"></Column>
+                        <Column className="inputs_coloum_group">security</Column>
+                    </Row>
 
-            <hr />
-            <Row className="input-orientation">
-                <Column className="inputs_coloum">
-                    <label htmlFor="">name</label>
-                    <Input
-                        placeholder='Name'
-                        id='name'
-                        type='text'
-                        disabled={editable}
-                        autoComplete="off"
-                        style={!editable ? { color: "white" } : { color: "#727272" }}
+                    <hr />
+                    <Row className="input_orientation">
+                        <Column className="inputs_coloum">
+                            <label htmlFor="">name</label>
+                            <Input
+                                placeholder='Name'
+                                id='name'
+                                type='text'
+                                disabled={editable}
+                                autoComplete="off"
+                                style={!editable ? { color: "white" } : { color: "#727272" }}
 
-                        onChange={(e) => setName(e.target.value)}
-                        value={name}
-                    />
+                                onChange={(e) => setName(e.target.value)}
+                                value={name}
+                            />
 
-                    <label htmlFor="">Email</label>
+                            <label htmlFor="">Email</label>
 
-                    <input
-                        className="email"
-                        autoComplete="off"
-                        placeholder='Email ID'
-                        id='email'
-                        type='text'
-                        disabled={editable}
-                        autoComplete="off"
-                        style={!editable ? { color: "white" } : { color: "#727272" }}
+                            <input
+                                className="email"
+                                autoComplete="off"
+                                placeholder='Email ID'
+                                id='email'
+                                type='text'
+                                disabled={editable}
+                                autoComplete="off"
+                                style={!editable ? { color: "white" } : { color: "#727272" }}
 
-                        // disabled
-                        // onChange={handleClick}
-                        value={email}
-                        onClick={emailClick}
-                    />
+                                // disabled
+                                // onChange={handleClick}
+                                value={email}
+                                onClick={emailClick}
+                            />
 
 
-                </Column>
-                <Column className="inputs_coloum">
-                    <label htmlFor="">Phone no</label>
+                        </Column>
+                        <Column className="inputs_coloum">
+                            <label htmlFor="">Phone no</label>
 
-                    <input
-                        // style={{ backgroundColor: "orange", color: "black" }}
-                        className="number"
-                        placeholder='Phone No.'
-                        autoComplete="off"
-                        disabled={editable}
-                        autoComplete="off"
-                        style={!editable ? { color: "white" } : { color: "#727272" }}
+                            <input
+                                // style={{ backgroundColor: "orange", color: "black" }}
+                                className="number"
+                                placeholder='Phone No.'
+                                autoComplete="off"
+                                disabled={editable}
+                                autoComplete="off"
+                                style={!editable ? { color: "white" } : { color: "#727272" }}
 
-                        id='phone'
-                        type='text'
-                        // onChange={(e) => setPhone(e.target.value)}
-                        value={phone}
-                        onClick={phoneClick}
-                    />
-                    <label htmlFor="">Whatsapp no</label>
-                    <Input
-                        placeholder='Whatsapp No.'
-                        id='wpp'
-                        type='text'
-                        onChange={(e) => setWpp(e.target.value)}
-                        value={wpp}
-                        disabled={editable}
-                        autoComplete="off"
-                        style={!editable ? { color: "white" } : { color: "#727272" }}
+                                id='phone'
+                                type='text'
+                                // onChange={(e) => setPhone(e.target.value)}
+                                value={phone}
+                                onClick={phoneClick}
+                            />
+                            <label htmlFor="">Whatsapp no</label>
+                            <Input
+                                placeholder='Whatsapp No.'
+                                id='wpp'
+                                type='text'
+                                onChange={(e) => setWpp(e.target.value)}
+                                value={wpp}
+                                disabled={editable}
+                                autoComplete="off"
+                                style={!editable ? { color: "white" } : { color: "#727272" }}
 
-                    />
-                </Column>
-                <Column className="inputs_coloum">
-                    <label htmlFor="">PAssword</label>
-                    <Input
-                        placeholder='State'
-                        id='state'
-                        type='password'
-                        onChange={(e) => setState(e.target.value)}
-                        value={state}
-                        disabled={editable}
-                        autoComplete="off"
-                        style={!editable ? { color: "white" } : { color: "#727272" }}
+                            />
+                        </Column>
+                        <Column className="inputs_coloum">
+                            <label htmlFor="">PAssword</label>
+                            <Input
+                                placeholder='State'
+                                id='state'
+                                type='password'
+                                onChange={(e) => setState(e.target.value)}
+                                value={state}
+                                disabled={editable}
+                                autoComplete="off"
+                                style={!editable ? { color: "white" } : { color: "#727272" }}
 
-                    />
-                    {/* <Button onClick={getLocation}>Locate me</Button> */}
+                            />
+                            {/* <Button onClick={getLocation}>Locate me</Button> */}
 
-                </Column>
-            </Row>
+                        </Column>
+                    </Row>
 
-            <button
-                onClick={handleformdata}
-                // className={`${disabled1 == 0 ? "disabled_save_butn_block  " : "disabled_save_butn "}`}
-                className="disabled_save_butn"
-            // disabled={!name || !wpp || !city || !pin || !state}
-            >
-                {btnTxt}
-            </button>
+                    <div
+                        onClick={handleformdata}
+                        // className={`${disabled1 == 0 ? "disabled_save_butn_block  " : "disabled_save_butn "}`}
+                        className="disabled_save_butn"
+                    // disabled={!name || !wpp || !city || !pin || !state}
+                    >
+                        <img src={EditIcon} alt="" style={{height:"20px",marginRight:"2px"}}/>
+                        {btnTxt}
+                    </div>
 
-            <ToastContainer />
-        </form>
+                    <ToastContainer />
+                </div>
+
+                :
+                <div>
+                    <Row>
+                        <Column className="inputs_coloum_group">Personal information</Column>
+                    </Row>
+                    <hr />
+                    <Row className="input_orientation">
+                        <Column className="inputs_coloum">
+                            <label htmlFor="">name</label>
+                            <Input
+                                placeholder='Name'
+                                id='name'
+                                type='text'
+                                disabled={editable}
+                                autoComplete="off"
+                                style={!editable ? { color: "white" } : { color: "#727272" }}
+
+                                onChange={(e) => setName(e.target.value)}
+                                value={name}
+                            />
+
+                            <label htmlFor="">Email</label>
+
+                            <input
+                                className="email"
+                                autoComplete="off"
+                                placeholder='Email ID'
+                                id='email'
+                                type='text'
+                                disabled={editable}
+                                autoComplete="off"
+                                style={!editable ? { color: "white" } : { color: "#727272" }}
+
+                                // disabled
+                                // onChange={handleClick}
+                                value={email}
+                                onClick={emailClick}
+                            />
+
+
+
+                            <label htmlFor="">Phone no</label>
+
+                            <input
+                                // style={{ backgroundColor: "orange", color: "black" }}
+                                className="number"
+                                placeholder='Phone No.'
+                                autoComplete="off"
+                                disabled={editable}
+                                autoComplete="off"
+                                style={!editable ? { color: "white" } : { color: "#727272" }}
+
+                                id='phone'
+                                type='text'
+                                // onChange={(e) => setPhone(e.target.value)}
+                                value={phone}
+                                onClick={phoneClick}
+                            />
+                            <label htmlFor="">Whatsapp no</label>
+                            <Input
+                                placeholder='Whatsapp No.'
+                                id='wpp'
+                                type='text'
+                                onChange={(e) => setWpp(e.target.value)}
+                                value={wpp}
+                                disabled={editable}
+                                autoComplete="off"
+                                style={!editable ? { color: "white" } : { color: "#727272" }}
+
+                            />
+
+                            {/* <Button onClick={getLocation}>Locate me</Button> */}
+
+                        </Column>
+                    </Row>
+                    <Row>
+                        <Column className="inputs_coloum_group">security</Column>
+                    </Row>
+                    <hr />
+                    <Row className="input_orientation" >
+
+                        <Column className="inputs_coloum">
+                            <label htmlFor="">PAssword</label>
+                            <Input
+                                placeholder='State'
+                                id='state'
+                                type='password'
+                                onChange={(e) => setState(e.target.value)}
+                                value={state}
+                                disabled={editable}
+                                autoComplete="off"
+                                style={!editable ? { color: "white" } : { color: "#727272" }}
+
+                            />
+                        </Column>
+                    </Row>
+
+                    <div
+                        onClick={handleformdata}
+                        // className={`${disabled1 == 0 ? "disabled_save_butn_block  " : "disabled_save_butn "}`}
+                        className="disabled_save_butn"
+                    // disabled={!name || !wpp || !city || !pin || !state}
+                    >
+                        <img src={EditIcon} alt="" style={{height:"20px",marginRight:"2px"}}/>
+                        {btnTxt}
+                    </div>
+
+                    <ToastContainer />
+                </div>
+
+            }
+        </>
     );
 };
 

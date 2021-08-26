@@ -11,6 +11,10 @@ import axios from "axios";
 import "./Profile.css"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import EditIcon from "../../../../Images/newProfileYellow/Edit profile.png"
+
+import Submit from "../../../../Images/newProfileYellow/Send Message.png"
+
 require('dotenv').config()
 
 const Feedback = ({ formData, setFormData, getUser, handleClickOpen }) => {
@@ -60,16 +64,17 @@ const Feedback = ({ formData, setFormData, getUser, handleClickOpen }) => {
 
     return (
         <Column>
-            <SectionTitle>
+            <Column>
                 Rate Us
-            </SectionTitle>
-            <div  className="rating_div" >
-                <div className="stars" style={{ display: "block", width: "30%",marginLeft:"50px" }}>
+            </Column>
+            <hr style={{ width: "100%" }} />
+            <div className="feedback_section" >
+                <div className="rating_div">
                     <h3>Rating</h3>
                     <Row
                         style={{
                             alignSelf: "center",
-                            marginBottom: "3rem",
+                            // marginBottom: "3rem",
                             marginTop: "1rem",
                         }}
                     >
@@ -136,9 +141,10 @@ const Feedback = ({ formData, setFormData, getUser, handleClickOpen }) => {
                     </Row>
                     <h5>rate your expriance here</h5>
                 </div>
+                {window.innerWidth < 600 ? <hr style={{ width: "100%" }} /> : null}
                 <div className="feedback_div" >
                     <h3>Feedback</h3>
-                    <div style={{width:"100%",display:"flex",flexDirection:"column"}}>
+                    <div style={{ width: "100%", display: "flex", flexDirection: "column" }}>
                         <Textarea
                             style={{
                                 resize: "none",
@@ -149,14 +155,23 @@ const Feedback = ({ formData, setFormData, getUser, handleClickOpen }) => {
                             placeholder='Give Your Feedback Here'
                             onChange={(e) => setFeed(e.target.value)}
                         ></Textarea>
-                        <Button
+                        {/* <Button
                             style={{
                                 alignSelf: "center",
                             }}
                             onClick={handleFeedback}
                         >
                             Submit
-                        </Button>
+                        </Button> */}
+                        <div style={{
+                                margin:"5px",
+                            }}
+                            onClick={handleFeedback}
+                            className="disabled_save_butn  "
+                        >
+                            <img src={Submit} alt="" style={{ height: "20px", marginRight: "2px" }} />
+                            Submit
+                        </div>
                     </div>
                     <div>
 

@@ -6,6 +6,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import validator from 'validator'
 import axios from "axios";
 import "./Profile.css"
+import EditIcon from "../../../../Images/newProfileYellow/Edit profile.png"
+
 require('dotenv').config()
 
 const CompanyDetails = ({ formData, setFormData, getUser, filled, setFilled, handleClickOpen }) => {
@@ -101,115 +103,238 @@ const CompanyDetails = ({ formData, setFormData, getUser, filled, setFilled, han
     // }, [name, phone, title, wpp, companyName, email])
 
     return (
-        <form
-            style={{
-                width: "100%",
-            }}
-        >
-           
-            <Row>
-                <Column className="inputs_coloum_group">company </Column>
-                <Column className="inputs_coloum_group">contact information</Column>
-                {/* <Column className="inputs_coloum_group">security</Column> */}
-            </Row>
+        <>
+            {window.innerWidth > 600 ?
+                <form
+                    style={{
+                        width: "100%",
+                    }}
+                >
 
-            <hr />
-            <Row className="input-orientation">
-                <Column className="inputs_coloum">
-                    <label htmlFor="">name</label>
-                    <Input
-                        style={!editable ? { color: "white" } : { color: "#727272" }}
-                        placeholder='Name'
-                        autoComplete="off"
-                        id='name'
-                        type='text'
-                        disabled={editable}
-                        onChange={(e) => setName(e.target.value)}
-                        value={name}
-                    />
+                    <Row>
+                        <Column className="inputs_coloum_group">company </Column>
+                        <Column className="inputs_coloum_group">contact information</Column>
+                        {/* <Column className="inputs_coloum_group">security</Column> */}
+                    </Row>
 
-
-                    <label htmlFor="">Company Name</label>
-
-                    <Input
-                        style={!editable ? { color: "white" } : { color: "#727272" }}
-                        placeholder='Company Name'
-                        autoComplete="off"
-                        id='company'
-                        type='text'
-                        onChange={(e) => setCompanyName(e.target.value)}
-                        value={companyName}
-                        disabled={editable}
-                        autoComplete="off"
-
-                    />
+                    <hr />
+                    <Row className="input_orientation">
+                        <Column className="inputs_coloum">
+                            <label htmlFor="">name</label>
+                            <Input
+                                style={!editable ? { color: "white" } : { color: "#727272" }}
+                                placeholder='Name'
+                                autoComplete="off"
+                                id='name'
+                                type='text'
+                                disabled={editable}
+                                onChange={(e) => setName(e.target.value)}
+                                value={name}
+                            />
 
 
-                </Column>
-                <Column className="inputs_coloum">
-                    <label htmlFor="">Phone no</label>
+                            <label htmlFor="">Company Name</label>
 
-                    <Input
-                        style={!editable ? { color: "white" } : { color: "#727272" }}
-                        placeholder='Phone No.'
-                        id='phone'
-                        type='text'
-                        onChange={(e) => setPhone(e.target.value)}
-                        value={phone}
-                        disabled={editable}
-                        autoComplete="off"
+                            <Input
+                                style={!editable ? { color: "white" } : { color: "#727272" }}
+                                placeholder='Company Name'
+                                autoComplete="off"
+                                id='company'
+                                type='text'
+                                onChange={(e) => setCompanyName(e.target.value)}
+                                value={companyName}
+                                disabled={editable}
+                                autoComplete="off"
 
-                    />
-                    <label htmlFor="">Title</label>
-                    <Input
-                        style={!editable ? { color: "white" } : { color: "#727272" }}
-                        placeholder='Title'
-                        id='title'
-                        type='text'
-                        onChange={(e) => setTitle(e.target.value)}
-                        value={title}
-                        disabled={editable}
-                        autoComplete="off"
+                            />
 
-                    />
-                </Column>
-                <Column className="inputs_coloum">
-                    <label htmlFor="">Email</label>
-                    <Input
-                        style={!editable ? { color: "white" } : { color: "#727272" }}
-                        placeholder='Email ID'
-                        id='email'
-                        type='text'
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email}
-                        disabled={editable}
-                        autoComplete="off"
 
-                    />
-                    <label htmlFor="">Fax no </label>
-                    <Input
-                        style={!editable ? { color: "white" } : { color: "#727272" }}
-                        placeholder='Whatsapp No.'
-                        id='wpp'
-                        type='text'
-                        onChange={(e) => setWpp(e.target.value)}
-                        value={wpp}
-                        disabled={editable}
-                        autoComplete="off"
+                        </Column>
+                        <Column className="inputs_coloum">
+                            <label htmlFor="">Phone no</label>
 
-                    />
+                            <Input
+                                style={!editable ? { color: "white" } : { color: "#727272" }}
+                                placeholder='Phone No.'
+                                id='phone'
+                                type='text'
+                                onChange={(e) => setPhone(e.target.value)}
+                                value={phone}
+                                disabled={editable}
+                                autoComplete="off"
 
-                </Column>
-            </Row>
+                            />
+                            <label htmlFor="">Title</label>
+                            <Input
+                                style={!editable ? { color: "white" } : { color: "#727272" }}
+                                placeholder='Title'
+                                id='title'
+                                type='text'
+                                onChange={(e) => setTitle(e.target.value)}
+                                value={title}
+                                disabled={editable}
+                                autoComplete="off"
 
-            <button
-                onClick={handleformdata}
-                className="disabled_save_butn"
-            >
-                {btnTxt}
-            </button>
-            <ToastContainer />
-        </form>
+                            />
+                        </Column>
+                        <Column className="inputs_coloum">
+                            <label htmlFor="">Email</label>
+                            <Input
+                                style={!editable ? { color: "white" } : { color: "#727272" }}
+                                placeholder='Email ID'
+                                id='email'
+                                type='text'
+                                onChange={(e) => setEmail(e.target.value)}
+                                value={email}
+                                disabled={editable}
+                                autoComplete="off"
+
+                            />
+                            <label htmlFor="">Fax no </label>
+                            <Input
+                                style={!editable ? { color: "white" } : { color: "#727272" }}
+                                placeholder='Whatsapp No.'
+                                id='wpp'
+                                type='text'
+                                onChange={(e) => setWpp(e.target.value)}
+                                value={wpp}
+                                disabled={editable}
+                                autoComplete="off"
+
+                            />
+
+                        </Column>
+                    </Row>
+
+                    <div
+                        onClick={handleformdata}
+                        // className={`${disabled1 == 0 ? "disabled_save_butn_block  " : "disabled_save_butn "}`}
+                        className="disabled_save_butn"
+                    // disabled={!name || !wpp || !city || !pin || !state}
+                    >
+                        <img src={EditIcon} alt="" style={{height:"20px",marginRight:"2px"}}/>
+                        {btnTxt}
+                    </div>
+                    <ToastContainer />
+                </form>
+                :
+                <form
+                    style={{
+                        width: "100%",
+                    }}
+                >
+
+                    <Row>
+                        <Column className="inputs_coloum_group">company </Column>
+                    </Row>
+                    <hr />
+                    <Row className="input_orientation">
+                        <Column className="inputs_coloum">
+                            <label htmlFor="">name</label>
+                            <Input
+                                style={!editable ? { color: "white" } : { color: "#727272" }}
+                                placeholder='Name'
+                                autoComplete="off"
+                                id='name'
+                                type='text'
+                                disabled={editable}
+                                onChange={(e) => setName(e.target.value)}
+                                value={name}
+                            />
+
+
+                            <label htmlFor="">Company Name</label>
+
+                            <Input
+                                style={!editable ? { color: "white" } : { color: "#727272" }}
+                                placeholder='Company Name'
+                                autoComplete="off"
+                                id='company'
+                                type='text'
+                                onChange={(e) => setCompanyName(e.target.value)}
+                                value={companyName}
+                                disabled={editable}
+                                autoComplete="off"
+
+                            />
+
+
+
+                        </Column>
+                    </Row>
+                    <Row>
+                        <Column className="inputs_coloum_group">contact information</Column>
+                    </Row>
+                    <hr />
+                    <Row className="input_orientation">
+                        <Column className="inputs_coloum">
+                            <label htmlFor="">Phone no</label>
+
+                            <Input
+                                style={!editable ? { color: "white" } : { color: "#727272" }}
+                                placeholder='Phone No.'
+                                id='phone'
+                                type='text'
+                                onChange={(e) => setPhone(e.target.value)}
+                                value={phone}
+                                disabled={editable}
+                                autoComplete="off"
+
+                            />
+                            <label htmlFor="">Title</label>
+                            <Input
+                                style={!editable ? { color: "white" } : { color: "#727272" }}
+                                placeholder='Title'
+                                id='title'
+                                type='text'
+                                onChange={(e) => setTitle(e.target.value)}
+                                value={title}
+                                disabled={editable}
+                                autoComplete="off"
+
+                            />
+                            <label htmlFor="">Email</label>
+                            <Input
+                                style={!editable ? { color: "white" } : { color: "#727272" }}
+                                placeholder='Email ID'
+                                id='email'
+                                type='text'
+                                onChange={(e) => setEmail(e.target.value)}
+                                value={email}
+                                disabled={editable}
+                                autoComplete="off"
+
+                            />
+                            <label htmlFor="">Fax no </label>
+                            <Input
+                                style={!editable ? { color: "white" } : { color: "#727272" }}
+                                placeholder='Whatsapp No.'
+                                id='wpp'
+                                type='text'
+                                onChange={(e) => setWpp(e.target.value)}
+                                value={wpp}
+                                disabled={editable}
+                                autoComplete="off"
+
+                            />
+
+                        </Column>
+
+                    </Row>
+                    <div
+                        onClick={handleformdata}
+                        // className={`${disabled1 == 0 ? "disabled_save_butn_block  " : "disabled_save_butn "}`}
+                        className="disabled_save_butn"
+                    // disabled={!name || !wpp || !city || !pin || !state}
+                    >
+                        <img src={EditIcon} alt="" style={{height:"20px",marginRight:"2px"}}/>
+                        {btnTxt}
+                    </div>
+                    <ToastContainer />
+                </form>
+
+            }
+        </>
     );
 };
 

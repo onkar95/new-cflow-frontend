@@ -1,10 +1,10 @@
-import React, {  useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Chart from "react-apexcharts";
-const ProfilePercent = ({filled}) => {
+const ProfilePercent = ({ filled, height }) => {
     // console.log(filled,"filled")
     const val = filled.address + filled.company + filled.personal
     const [percent, setPercent] = useState(val * 5);
-    const [chartOptions,setChartOptions] = useState({
+    const [chartOptions, setChartOptions] = useState({
         series: [percent],
         options: {
             chart: {
@@ -70,17 +70,28 @@ const ProfilePercent = ({filled}) => {
     });
     useEffect(() => {
         let temp;
-        temp = filled?.personal + filled?.company + filled?.address        
-        setPercent(temp ? temp*5 : 0)
-        setChartOptions({...chartOptions , series : [percent]})
-    },[filled])
+        temp = filled?.personal + filled?.company + filled?.address
+        setPercent(temp ? temp * 5 : 0)
+        setChartOptions({ ...chartOptions, series: [percent] })
+    }, [filled])
     return (
-        <Chart
-            options={chartOptions.options}
-            series={chartOptions.series}
-            type='radialBar'
-            height={270}
-        />
+        <>
+            {window.innerWidth>950?
+                <Chart
+                    options={chartOptions.options}
+                    series={chartOptions.series}
+                    type='radialBar'
+                    height={270}
+                />
+            :
+            <Chart
+                    options={chartOptions.options}
+                    series={chartOptions.series}
+                    type='radialBar'
+                    height={height}
+                />
+            }
+        </>
     );
 };
 

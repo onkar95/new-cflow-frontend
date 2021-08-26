@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { Column, GhostButton, Button } from "../../Styled/Styled";
 import "./Profile.css"
@@ -5,7 +6,7 @@ import ProfilePercent from "./ProfilePercent";
 import { useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom"
 
-const ProfileNav = (props) => {
+const ProfileNavMobile = (props) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const [phone, setPhone] = useState(props.formData?.phone_no ? props.formData?.phone_no : "");
@@ -13,7 +14,6 @@ const ProfileNav = (props) => {
     const [wpp, setWpp] = useState(props.formData?.whatsapp_no ? props.formData?.whatsapp_no : "");
 
     const [filled, setFilled] = useState("")
-
     const handleLogout = () => {
         props.function(6)
         dispatch({ type: "LOGOUT" })
@@ -27,38 +27,46 @@ const ProfileNav = (props) => {
         }
 
     }, [])
-    console.log(props.filled);
+
     return (
         <>
 
             <div className="profile_navbar">
                 <div className="userInfo">
                     <div className="profilePercent">
-                        <ProfilePercent filled={props.filled} height="170" />
-                    </div>
-                    <div className="userdetail">
-                        <div className="row">
+                        {window.innerWidth > 340 ?
+                            <ProfilePercent filled={props.filled} height="200" />
+                            :
+                            <ProfilePercent filled={props.filled} height="170" />
+                        }                    </div>
+                    <div className="row">
+                        <div style={{ display: "flex" }}>
                             <h1>user name</h1>
                             <h3>user</h3>
                         </div>
-                        <div className="info">
-                            <div>
-                                <h4>phone</h4>
-                                <h5>{phone}</h5>
-                            </div>
-                            <div>
-                                <h4>whatsapp</h4>
-                                <h4>{wpp}</h4>
-                            </div>
-                            <div>
-                                <h4>email</h4>
-                                <h4>{email} </h4>
-                            </div>
-                        </div>
+
                         <div className="logout_btn">
                             <Button>logout</Button>
                         </div>
                     </div>
+                </div>
+                <div className="userdetail">
+
+                    {/* <div className="info"> */}
+                    <div>
+                        <h4>phone</h4>
+                        <h5>{phone}</h5>
+                    </div>
+                    <div>
+                        <h4>whatsapp</h4>
+                        <h4>{wpp}</h4>
+                    </div>
+                    <div>
+                        <h4>email</h4>
+                        <h4>{email} </h4>
+                    </div>
+                    {/* </div> */}
+
                 </div>
                 {filled === "complete" ?
 
@@ -73,18 +81,18 @@ const ProfileNav = (props) => {
                     </div>
                     :
                     <>
-                    <div className="usersActivity">
-                        <h1>168</h1>
-                        <h5>Total pitch recived today</h5>
-                        <h5> 10.02% this week</h5>
-                    </div>
+                        <div className="usersActivity">
+                            <h1>168</h1>
+                            <h5>Total pitch recived today</h5>
+                            <h5> 10.02% this week</h5>
+                        </div>
 
-                    <div className="usersActivity">
-                        <h1>168</h1>
-                        <h5>Total pitch recived today</h5>
-                        <h5> 10.02% this week</h5>
-                    </div>
-                </>
+                        <div className="usersActivity">
+                            <h1>168</h1>
+                            <h5>Total pitch recived today</h5>
+                            <h5> 10.02% this week</h5>
+                        </div>
+                    </>
                 }
             </div>
 
@@ -92,4 +100,4 @@ const ProfileNav = (props) => {
     );
 };
 
-export default ProfileNav;
+export default ProfileNavMobile;

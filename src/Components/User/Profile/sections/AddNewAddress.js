@@ -5,6 +5,7 @@ import axios from "axios";
 import "./Profile.css"
 import pincode from "pincode-distance"
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import EditIcon from "../../../../Images/newProfileYellow/Edit profile.png"
 
 require('dotenv').config()
 
@@ -70,131 +71,264 @@ const AddNewAddress = ({ setCurrentSection, formData, setFormData, getUser, getS
         setCurrentSection(7)
     }
     return (
-        <form
-            style={{
-                width: "100%",
-            }}
-        >
-            <div className="backArrow" onClick={handleClick}>
-                <span>
-                    <ArrowBackIosIcon />
-                </span>
-                <h4>back</h4>
-            </div>
-            <Row>
-                <div style={{ margin: "10px" }}>
-                    Add site Address
-                </div>
-            </Row>
-            <Row className="input-orientation">
-
-                <Column className="inputs_coloum"
+        <>
+            {window.innerWidth > 600 ?
+                <form
+                    style={{
+                        width: "100%",
+                    }}
                 >
+                    <div className="backArrow" onClick={handleClick}>
+                        <span>
+                            <ArrowBackIosIcon />
+                        </span>
+                        <h4>back</h4>
+                    </div>
+                    <Row>
+                        <div style={{ margin: "10px" }}>
+                            Add site Address
+                        </div>
+                    </Row>
+                    <Row className="input_orientation">
 
-                    <Input
-                        placeholder='Building Name'
-                        id='name'
-                        // disabled={editable}
-                        autoComplete="off"
-                        type='text'
-                        onChange={(e) => setBuildingname(e.target.value)}
-                        value={buildingname}
-                        style={{ marginBottom: "2rem" }}
-                    />
-                    <Input
-                        placeholder='Area/Street'
-                        id='company'
-                        type='text'
-                        onChange={(e) => setStreet(e.target.value)}
-                        value={street}
-                        style={{ marginBottom: "2rem" }}
-                        // disabled={editable}
-                        autoComplete="off"
+                        <Column className="inputs_coloum"
+                        >
 
-                    />
-                    <Input
-                        placeholder='H No / Door No'
-                        id='title'
-                        type='text'
-                        onChange={(e) => setDoorno(e.target.value)}
-                        value={doorno}
-                        style={{ marginBottom: "2rem" }}
-                        // disabled={editable}
-                        autoComplete="off"
-                    />
-                </Column>
+                            <Input
+                                placeholder='Building Name'
+                                id='name'
+                                // disabled={editable}
+                                autoComplete="off"
+                                type='text'
+                                onChange={(e) => setBuildingname(e.target.value)}
+                                value={buildingname}
+                                style={{ marginBottom: "2rem" }}
+                            />
+                            <Input
+                                placeholder='Area/Street'
+                                id='company'
+                                type='text'
+                                onChange={(e) => setStreet(e.target.value)}
+                                value={street}
+                                style={{ marginBottom: "2rem" }}
+                                // disabled={editable}
+                                autoComplete="off"
 
-                <Column className="inputs_coloum">
+                            />
+                            <Input
+                                placeholder='H No / Door No'
+                                id='title'
+                                type='text'
+                                onChange={(e) => setDoorno(e.target.value)}
+                                value={doorno}
+                                style={{ marginBottom: "2rem" }}
+                                // disabled={editable}
+                                autoComplete="off"
+                            />
+                        </Column>
 
-                    <Input
-                        placeholder='City'
-                        id='phone'
-                        type='text'
-                        onChange={(e) => setCity(e.target.value)}
-                        value={city}
-                        style={{ marginBottom: "2rem" }}
-                        // disabled={editable}
-                        autoComplete="off"
-                    />
-                    <Input
-                        placeholder='Pincode'
-                        id='phone'
-                        type='text'
-                        onChange={(e) => setPin(e.target.value)}
-                        value={pin}
-                        style={{ marginBottom: "2rem" }}
-                        // disabled={editable}
-                        autoComplete="off"
-                    />
-                    <Input
-                        placeholder='Landmark'
-                        id='email'
-                        type='text'
-                        onChange={(e) => setLandmark(e.target.value)}
-                        value={landmark}
-                        style={{ marginBottom: "2rem" }}
-                        // disabled={editable}
-                        autoComplete="off"
-                    />
-                </Column>
+                        <Column className="inputs_coloum">
+
+                            <Input
+                                placeholder='City'
+                                id='phone'
+                                type='text'
+                                onChange={(e) => setCity(e.target.value)}
+                                value={city}
+                                style={{ marginBottom: "2rem" }}
+                                // disabled={editable}
+                                autoComplete="off"
+                            />
+                            <Input
+                                placeholder='Pincode'
+                                id='phone'
+                                type='text'
+                                onChange={(e) => setPin(e.target.value)}
+                                value={pin}
+                                style={{ marginBottom: "2rem" }}
+                                // disabled={editable}
+                                autoComplete="off"
+                            />
+                            <Input
+                                placeholder='Landmark'
+                                id='email'
+                                type='text'
+                                onChange={(e) => setLandmark(e.target.value)}
+                                value={landmark}
+                                style={{ marginBottom: "2rem" }}
+                                // disabled={editable}
+                                autoComplete="off"
+                            />
+                        </Column>
 
 
-                <Column className="inputs_coloum"
+                        <Column className="inputs_coloum"
+                        >
+
+
+                            <Input
+                                placeholder='State'
+                                id='wpp'
+                                type='text'
+                                onChange={(e) => setState(e.target.value)}
+                                value={state}
+                                style={{ marginBottom: "2rem" }}
+                                // disabled={editable}
+                                autoComplete="off"
+                            />
+                            <Input
+                                placeholder='Address Title'
+                                id='wpp'
+                                type='text'
+                                onChange={(e) => setAddtitle(e.target.value)}
+                                value={addtitle}
+                                style={{ marginBottom: "2rem" }}
+                                // disabled={editable}
+                                autoComplete="off"
+                            />
+                        </Column>
+
+                    </Row>
+                    <button
+                        onClick={handleformdata}
+                        className="disiabled_save_butn"
+                        className={`${disabled1 == 0 ? "disiabled_save_butn_block  " : "disiabled_save_butn "}`}
+                        disabled={!buildingname || !state || !addtitle || !city || !doorno || !landmark || !street || !pin}
+                    >
+                        save
+                    </button>
+                </form>
+
+                :
+                <form
+                    style={{
+                        width: "100%",
+                    }}
                 >
+                    <div className="backArrow" onClick={handleClick}>
+                        <span>
+                            <ArrowBackIosIcon />
+                        </span>
+                        <h4>back</h4>
+                    </div>
+                    <Row>
+                        <div style={{ margin: "10px" }}>
+                            Add site Address
+                        </div>
+                    </Row>
+                    <Row className="input_orientation">
+
+                        <Column className="inputs_coloum"
+                        >
+
+                            <label htmlFor="">Building Name</label>
+                            <Input
+                                placeholder='Building Name'
+                                id='name'
+                                // disabled={editable}
+                                autoComplete="off"
+                                type='text'
+                                onChange={(e) => setBuildingname(e.target.value)}
+                                value={buildingname}
+                                style={{ marginBottom: "2rem" }}
+                            />
+                            <label htmlFor="">Area/Street</label>
+                            <Input
+                                placeholder='Area/Street'
+                                id='company'
+                                type='text'
+                                onChange={(e) => setStreet(e.target.value)}
+                                value={street}
+                                style={{ marginBottom: "2rem" }}
+                                // disabled={editable}
+                                autoComplete="off"
+
+                            />
+                            <label htmlFor="">H No / Door No</label>
+                            <Input
+                                placeholder='H No / Door No'
+                                id='title'
+                                type='text'
+                                onChange={(e) => setDoorno(e.target.value)}
+                                value={doorno}
+                                style={{ marginBottom: "2rem" }}
+                                // disabled={editable}
+                                autoComplete="off"
+                            />
+
+                            <label htmlFor="">City</label>
+                            <Input
+                                placeholder='City'
+                                id='phone'
+                                type='text'
+                                onChange={(e) => setCity(e.target.value)}
+                                value={city}
+                                style={{ marginBottom: "2rem" }}
+                                // disabled={editable}
+                                autoComplete="off"
+                            />
+                            <label htmlFor="">Pincode</label>
+                            <Input
+                                placeholder='Pincode'
+                                id='phone'
+                                type='text'
+                                onChange={(e) => setPin(e.target.value)}
+                                value={pin}
+                                style={{ marginBottom: "2rem" }}
+                                // disabled={editable}
+                                autoComplete="off"
+                            />
+                            <label htmlFor="">Landmark</label>
+                            <Input
+                                placeholder='Landmark'
+                                id='email'
+                                type='text'
+                                onChange={(e) => setLandmark(e.target.value)}
+                                value={landmark}
+                                style={{ marginBottom: "2rem" }}
+                                // disabled={editable}
+                                autoComplete="off"
+                            />
 
 
-                    <Input
-                        placeholder='State'
-                        id='wpp'
-                        type='text'
-                        onChange={(e) => setState(e.target.value)}
-                        value={state}
-                        style={{ marginBottom: "2rem" }}
-                        // disabled={editable}
-                        autoComplete="off"
-                    />
-                    <Input
-                        placeholder='Address Title'
-                        id='wpp'
-                        type='text'
-                        onChange={(e) => setAddtitle(e.target.value)}
-                        value={addtitle}
-                        style={{ marginBottom: "2rem" }}
-                        // disabled={editable}
-                        autoComplete="off"
-                    />
-                </Column>
+                            <label htmlFor="">State</label>
+                            <Input
+                                placeholder='State'
+                                id='wpp'
+                                type='text'
+                                onChange={(e) => setState(e.target.value)}
+                                value={state}
+                                style={{ marginBottom: "2rem" }}
+                                // disabled={editable}
+                                autoComplete="off"
+                            />
+                            <label htmlFor="">Address Title</label>
+                            <Input
+                                placeholder='Address Title'
+                                id='wpp'
+                                type='text'
+                                onChange={(e) => setAddtitle(e.target.value)}
+                                value={addtitle}
+                                style={{ marginBottom: "2rem" }}
+                                // disabled={editable}
+                                autoComplete="off"
+                            />
+                        </Column>
 
-            </Row>
-            <button
-                onClick={handleformdata}
-                className="disiabled_save_butn"
-                className={`${disabled1 == 0 ? "disiabled_save_butn_block  " : "disiabled_save_butn "}`}
-                disabled={!buildingname || !state || !addtitle || !city || !doorno || !landmark || !street || !pin}
-            >
-                save
-            </button>
-        </form>
+                    </Row>
+                    <button
+                        onClick={handleformdata}
+                        className="disiabled_save_butn"
+                        className={`${disabled1 == 0 ? "disiabled_save_butn_block  " : "disiabled_save_butn "}`}
+                        disabled={!buildingname || !state || !addtitle || !city || !doorno || !landmark || !street || !pin}
+                    >
+                        save
+                    </button>
+                    
+                </form>
+
+            }
+        </>
     );
 };
 

@@ -6,6 +6,7 @@ import { SimCardTwoTone } from "@material-ui/icons";
 import axios from "axios";
 import "./Profile.css"
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import EditIcon from "../../../../Images/newProfileYellow/Edit profile.png"
 
 
 require('dotenv').config()
@@ -76,127 +77,263 @@ const EditAddress = ({ setCurrentSection, siteNo, site, setSite, getSite, handle
         setCurrentSection(7)
     }
     return (
-        <form
-            style={{
-                width: "100%",
-            }}
-        >
-
-            <div className="backArrow" onClick={handleClick}>
-                <span>
-                    <ArrowBackIosIcon />
-                </span>
-                <h4>back</h4>
-            </div>
-            <Row>
-                <div style={{ margin: "10px" }}>
-
-                    Edite site Address
-                </div>
-            </Row>
-            <Row className="input-orientation">
-                <Column className="inputs_coloum">
-                    <Input
-                        placeholder='Building Name'
-                        id='name'
-                        type='text'
-                        onChange={(e) => setBuildingname(e.target.value)}
-                        value={buildingname}
-                        style={{ marginBottom: "2rem" }}
-                    />
-                    <Input
-                        placeholder='Area/Street'
-                        id='company'
-                        type='text'
-                        onChange={(e) => setStreet(e.target.value)}
-                        value={street}
-                        style={{ marginBottom: "2rem" }}
-                    />
-                    <Input
-                        placeholder='City'
-                        id='phone'
-                        type='text'
-                        onChange={(e) => setCity(e.target.value)}
-                        value={city}
-                        style={{ marginBottom: "2rem" }}
-                    />
-                </Column>
-
-                <Column className="inputs_coloum" >
-                    <Input
-                        placeholder='Pincode'
-                        id='phone'
-                        type='text'
-                        onChange={(e) => setPin(e.target.value)}
-                        value={pin}
-                        style={{ marginBottom: "2rem" }}
-                    />
-                    <Input
-                        placeholder='H No / Door No'
-                        id='title'
-                        type='text'
-                        onChange={(e) => setDoorno(e.target.value)}
-                        value={doorno}
-                        style={{ marginBottom: "2rem" }}
-                    />
-                    <Input
-                        placeholder='Landmark'
-                        id='email'
-                        type='text'
-                        onChange={(e) => setLandmark(e.target.value)}
-                        value={landmark}
-                        style={{ marginBottom: "2rem" }}
-                    />
-                </Column>
-
-                <Column className="inputs_coloum" >
-
-                    <Input
-                        placeholder='State'
-                        id='wpp'
-                        type='text'
-                        onChange={(e) => setState(e.target.value)}
-                        value={state}
-                        style={{ marginBottom: "2rem" }}
-                    />
-                    <Input
-                        placeholder='Address Title'
-                        id='wpp'
-                        type='text'
-                        onChange={(e) => setAddtitle(e.target.value)}
-                        value={addtitle}
-                        style={{ marginBottom: "2rem" }}
-                    />
-                </Column>
-            </Row>
-            <div className="btn-container-edit-add">
-                <Button
+        <>
+            {window.innerWidth < 600 ?
+                <form
                     style={{
-                        // position: "relative",
-                        // left: "43%",
-                        // transform: "translate(-50%)",
+                        width: "100%",
                     }}
-                    onClick={handleUpdate}
                 >
-                    Update
-                </Button>
-                <Button
-                    className="del-edit-add-btn"
-                    style={{
-                        // position: "relative",
-                        // left: "47%",
-                        // transform: "translate(-50%)",
-                        backgroundColor: "transparent",
-                        border: "1px solid #FFB600",
-                        color: "#FFB600"
-                    }}
-                    onClick={handleDelete}
-                >
-                    Delete
-                </Button>
-            </div>
 
-        </form>
+                    <div className="backArrow" onClick={handleClick}>
+                        <span>
+                            <ArrowBackIosIcon />
+                        </span>
+                        <h4>back</h4>
+                    </div>
+                    <Row>
+                        {/* <div style={{ margin: "10px" }}> */}
+
+                        Edite site Address
+                        {/* </div> */}
+                    </Row>
+                    <Row className="input_orientation">
+                        <Column className="inputs_coloum">
+                            <label htmlFor="">Building Name</label>
+                            <Input
+                                placeholder='Building Name'
+                                id='name'
+                                type='text'
+                                onChange={(e) => setBuildingname(e.target.value)}
+                                value={buildingname}
+                                style={{ marginBottom: "2rem" }}
+                            />
+                            <label htmlFor="">Area/Street</label>
+                            <Input
+                                placeholder='Area/Street'
+                                id='company'
+                                type='text'
+                                onChange={(e) => setStreet(e.target.value)}
+                                value={street}
+                                style={{ marginBottom: "2rem" }}
+                            />
+                            <label htmlFor="">City</label>
+                            <Input
+                                placeholder='City'
+                                id='phone'
+                                type='text'
+                                onChange={(e) => setCity(e.target.value)}
+                                value={city}
+                                style={{ marginBottom: "2rem" }}
+                            />
+                            <label htmlFor="">Pincode</label>
+                            <Input
+                                placeholder='Pincode'
+                                id='phone'
+                                type='text'
+                                onChange={(e) => setPin(e.target.value)}
+                                value={pin}
+                                style={{ marginBottom: "2rem" }}
+                            />
+                            <label htmlFor="">H No / Door No</label>
+                            <Input
+                                placeholder='H No / Door No'
+                                id='title'
+                                type='text'
+                                onChange={(e) => setDoorno(e.target.value)}
+                                value={doorno}
+                                style={{ marginBottom: "2rem" }}
+                            />
+                            <label htmlFor="">Landmark</label>
+                            <Input
+                                placeholder='Landmark'
+                                id='email'
+                                type='text'
+                                onChange={(e) => setLandmark(e.target.value)}
+                                value={landmark}
+                                style={{ marginBottom: "2rem" }}
+                            />
+
+                            <label htmlFor="">State</label>
+                            <Input
+                                placeholder='State'
+                                id='wpp'
+                                type='text'
+                                onChange={(e) => setState(e.target.value)}
+                                value={state}
+                                style={{ marginBottom: "2rem" }}
+                            />
+                            <label htmlFor="">Address Title</label>
+                            <Input
+                                placeholder='Address Title'
+                                id='wpp'
+                                type='text'
+                                onChange={(e) => setAddtitle(e.target.value)}
+                                value={addtitle}
+                                style={{ marginBottom: "2rem" }}
+                            />
+                        </Column>
+                    </Row>
+                    <div className="btn-container-edit-add">
+                        <Button
+                            style={{
+                                // position: "relative",
+                                // left: "43%",
+                                // transform: "translate(-50%)",
+                            }}
+                            onClick={handleUpdate}
+                        >
+                            Update
+                        </Button>
+                        <Button
+                            className="del-edit-add-btn"
+                            style={{
+                                // position: "relative",
+                                // left: "47%",
+                                // transform: "translate(-50%)",
+                                backgroundColor: "transparent",
+                                border: "1px solid #FFB600",
+                                color: "#FFB600"
+                            }}
+                            onClick={handleDelete}
+                        >
+                            Delete
+                        </Button>
+                    </div>
+
+                </form>
+                :
+                <form
+                    style={{
+                        width: "100%",
+                    }}
+                >
+
+                    <div className="backArrow" onClick={handleClick}>
+                        <span>
+                            <ArrowBackIosIcon />
+                        </span>
+                        <h4>back</h4>
+                    </div>
+                    <Row>
+                        <div style={{ margin: "10px" }}>
+
+                            Edite site Address
+                        </div>
+                    </Row>
+                    <Row className="input_orientation">
+                        <Column className="inputs_coloum">
+                            <label htmlFor="">Building Name</label>
+                            <Input
+                                placeholder='Building Name'
+                                id='name'
+                                type='text'
+                                onChange={(e) => setBuildingname(e.target.value)}
+                                value={buildingname}
+                                style={{ marginBottom: "2rem" }}
+                            />
+                            <label htmlFor="">Area/Street</label>
+
+                            <Input
+                                placeholder='Area/Street'
+                                id='company'
+                                type='text'
+                                onChange={(e) => setStreet(e.target.value)}
+                                value={street}
+                                style={{ marginBottom: "2rem" }}
+                            />
+                            <label htmlFor="">City</label>
+                            <Input
+                                placeholder='City'
+                                id='phone'
+                                type='text'
+                                onChange={(e) => setCity(e.target.value)}
+                                value={city}
+                                style={{ marginBottom: "2rem" }}
+                            />
+                        </Column>
+
+                        <Column className="inputs_coloum" >
+                        <label htmlFor="">Pincode</label>
+                            <Input
+                                placeholder='Pincode'
+                                id='phone'
+                                type='text'
+                                onChange={(e) => setPin(e.target.value)}
+                                value={pin}
+                                style={{ marginBottom: "2rem" }}
+                            />
+                            <label htmlFor="">H No / Door No</label>
+                            <Input
+                                placeholder='H No / Door No'
+                                id='title'
+                                type='text'
+                                onChange={(e) => setDoorno(e.target.value)}
+                                value={doorno}
+                                style={{ marginBottom: "2rem" }}
+                            />
+                            <label htmlFor="">Landmark</label>
+                            <Input
+                                placeholder='Landmark'
+                                id='email'
+                                type='text'
+                                onChange={(e) => setLandmark(e.target.value)}
+                                value={landmark}
+                                style={{ marginBottom: "2rem" }}
+                            />
+                        </Column>
+
+                        <Column className="inputs_coloum" >
+                        <label htmlFor="">State</label>
+                            <Input
+                                placeholder='State'
+                                id='wpp'
+                                type='text'
+                                onChange={(e) => setState(e.target.value)}
+                                value={state}
+                                style={{ marginBottom: "2rem" }}
+                            />
+                            <label htmlFor="">Address Title</label>
+                            <Input
+                                placeholder='Address Title'
+                                id='wpp'
+                                type='text'
+                                onChange={(e) => setAddtitle(e.target.value)}
+                                value={addtitle}
+                                style={{ marginBottom: "2rem" }}
+                            />
+                        </Column>
+                    </Row>
+                    <div className="btn-container-edit-add">
+                        <Button
+                            style={{
+                                // position: "relative",
+                                // left: "43%",
+                                // transform: "translate(-50%)",
+                            }}
+                            onClick={handleUpdate}
+                        >
+                            Update
+                        </Button>
+                        <Button
+                            className="del-edit-add-btn"
+                            style={{
+                                // position: "relative",
+                                // left: "47%",
+                                // transform: "translate(-50%)",
+                                backgroundColor: "transparent",
+                                border: "1px solid #FFB600",
+                                color: "#FFB600"
+                            }}
+                            onClick={handleDelete}
+                        >
+                            Delete
+                        </Button>
+                    </div>
+
+                </form>
+            }
+        </>
     );
 };
 
