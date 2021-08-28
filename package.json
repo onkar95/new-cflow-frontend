@@ -1,4 +1,5 @@
-{"homepage": "http://onkar95.github.io/new-cflow-frontend",
+{
+  "homepage": "http://onkar95.github.io/new-cflow-frontend",
   "name": "construction-flow",
   "version": "0.1.0",
   "private": true,
