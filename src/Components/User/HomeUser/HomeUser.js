@@ -68,9 +68,13 @@ function HomeUser({ setIsUser, isSignup, setIsSignup }) {
     const [currentSectionService, setCurrentSectionService] = useState(0)
     const [currentSectionEstimate, setCurrentSectionEstimate] = useState(0)
     const [currentSectionBlog, setCurrentSectionBlog] = useState(0)
+    const [theme, setTheme] = useState(false);
+    console.log(theme);
+    const DarkWhite = (val) => {
+            setTheme(val);
 
-
-
+    }
+    console.log(theme);
     const history = useHistory()
     let temp, ans;
 
@@ -331,9 +335,9 @@ function HomeUser({ setIsUser, isSignup, setIsSignup }) {
 
 
     return (
-        <div className="home-user-container" >
+        <div className="home-user-container" style={theme===true?{ backgroundColor: "white", color: "black" }:{ backgroundColor: "rgb(18 17 17)", color: "white" }} >
 
-            <Header currentSectionProfile={currentSectionProfile} setCurrentSectionProfile={setCurrentSectionProfile} setIsUser={setIsUser} sections={sections} currentSection={currentSection} LogoImage={LogoImage} setCurrentSection={setCurrentSection} setCurrentSectionProfile={setCurrentSectionProfile} setIsToggled={setIsToggled} getCart={getCart} />
+            <Header DarkWhite={DarkWhite} currentSectionProfile={currentSectionProfile} setCurrentSectionProfile={setCurrentSectionProfile} setIsUser={setIsUser} sections={sections} currentSection={currentSection} LogoImage={LogoImage} setCurrentSection={setCurrentSection} setCurrentSectionProfile={setCurrentSectionProfile} setIsToggled={setIsToggled} getCart={getCart} />
             {
                 winsize > 650 && <Navbar sections={sections} currentSection={currentSection} setCurrentSection={setCurrentSection} sections_logo_black={sections_logo_black} sections_logo_white={sections_logo_white} setIsToggled={setIsToggled} />
             }
@@ -356,12 +360,13 @@ function HomeUser({ setIsUser, isSignup, setIsSignup }) {
                 />}
 
                 {currentSection === 4 && <Blog
+                    theme={theme}
                     setCurrentSectionRequest={setCurrentSection}
                     setCurrentSection={setCurrentSectionBlog}
                     setCurrentSectionBlog={setCurrentSectionBlog}
                     currentSection={currentSectionBlog}
                 />}
-                {currentSection === 5 && <Profile toabout={toabout} setToabout={setToabout} formData={formData} setFormData={setFormData} getUser={getUser} site={site} getSite={getSite} setSite={setSite} currentSection={currentSectionProfile} setCurrentSection={setCurrentSectionProfile} />}
+                {currentSection === 5 && <Profile theme={theme} toabout={toabout} setToabout={setToabout} formData={formData} setFormData={setFormData} getUser={getUser} site={site} getSite={getSite} setSite={setSite} currentSection={currentSectionProfile} setCurrentSection={setCurrentSectionProfile} />}
                 {currentSection === 6 && <Details setCurrentSection={setCurrentSection} selectedTableItem={selectedTableItem} getAllVendor={getAllVendor} />}
                 {currentSection === 7 && <Details1 setCurrentSection={setCurrentSection} selectedTableItem={selectedTableItem} />}
                 {currentSection === 8 && <DetailAccepted setCurrentSection={setCurrentSection} selectedTableItem={selectedTableItem} requestedVendorDetails={requestedVendorDetails} />}

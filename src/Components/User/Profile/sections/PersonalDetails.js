@@ -179,7 +179,7 @@ const PersonalDetails = ({ formData, setFormData, getUser, filled, setFilled, ha
         <>
             {window.innerWidth > 600 ?
                 <div>
-                    <Row>
+                    <Row className="profile_section_heading">
                         <Column className="inputs_coloum_group">Personal information</Column>
                         <Column className="inputs_coloum_group"></Column>
                         <Column className="inputs_coloum_group">security</Column>

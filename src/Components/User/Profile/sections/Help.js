@@ -10,9 +10,14 @@ const Help = () => {
     inputFile.current.click();
   };
   return (
+    <>
+      <div>
+        <p>Help Center</p>
+      </div>
+    { <hr style={{width:"100%" }} /> }
     <div className="help">
-
-      <div className="help_ques_div">
+       
+        <div className="help_ques_div">
         <div>
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, porro?</p>
           <ans>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa suscipit mollitia eius id. Corporis laborum temporibus eveniet vero fugit alias!</ans>
@@ -26,13 +31,12 @@ const Help = () => {
         <div>
           <p>stil have question? <a href="">contact us</a></p>
         </div>
-        <div>
-          <p>Help Center</p>
-        </div>
+
       </div>
       {window.innerWidth < 600 ? <hr style={{ width: "100%" }} /> : null}
       <div className="help_text_div">
         <Column>
+
           <h3
             style={{
               alignSelf: "center",
@@ -66,7 +70,7 @@ const Help = () => {
           />
           <div className="help_btns">
             <div
-              style={{margin: "3px"}}
+              style={{ margin: "3px" }}
               onClick={onFileClick}
               className="disabled_save_butn  "
             >
@@ -74,7 +78,7 @@ const Help = () => {
               Attach
             </div>
             <div
-              style={{margin: "3px"}}
+              style={{ margin: "3px" }}
               className="disabled_save_butn  "
             >
               <img src={Submit} alt="" style={{ height: "20px", marginRight: "2px" }} />
@@ -86,6 +90,8 @@ const Help = () => {
       </div>
 
     </div>
+  
+    </>
   );
 };
 

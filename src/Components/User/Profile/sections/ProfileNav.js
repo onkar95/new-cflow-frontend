@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Column, GhostButton, Button } from "../../Styled/Styled";
 import "./Profile.css"
+import "./profileNav.css"
 import ProfilePercent from "./ProfilePercent";
-import { useDispatch } from "react-redux"
-import { useHistory } from "react-router-dom"
-
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import completedIcon from "../../../../Images/newProfile/Verification pending.png"
 const ProfileNav = (props) => {
     const dispatch = useDispatch()
     const history = useHistory()
@@ -38,25 +39,28 @@ const ProfileNav = (props) => {
                     </div>
                     <div className="userdetail">
                         <div className="row">
-                            <h1>user name</h1>
-                            <h3>user</h3>
+                            <div className="custName_icon">
+                                <h1>Customer name</h1>
+                                <img src={completedIcon} style={{ width: "fit-content" }} alt="" />
+                            </div>
+                            <h3>Customer</h3>
                         </div>
                         <div className="info">
                             <div>
-                                <h4>phone</h4>
-                                <h5>{phone}</h5>
+                                <h3>phone</h3>
+                                <h4>{phone}</h4>
                             </div>
                             <div>
-                                <h4>whatsapp</h4>
+                                <h3>whatsapp</h3>
                                 <h4>{wpp}</h4>
                             </div>
                             <div>
-                                <h4>email</h4>
+                                <h3>email</h3>
                                 <h4>{email} </h4>
                             </div>
                         </div>
                         <div className="logout_btn">
-                            <Button>logout</Button>
+                            <Button onClick={handleLogout}>logout</Button>
                         </div>
                     </div>
                 </div>
@@ -72,19 +76,19 @@ const ProfileNav = (props) => {
                         </div>
                     </div>
                     :
-                    <>
-                    <div className="usersActivity">
-                        <h1>168</h1>
-                        <h5>Total pitch recived today</h5>
-                        <h5> 10.02% this week</h5>
-                    </div>
+                    <div className="usersActivity_div">
+                        <div className="users_pitch">
+                            <h1>168</h1>
+                            <h5>Total pitch recived today</h5>
+                            <h5><b>10.02%</b>  this week</h5>
+                        </div>
 
-                    <div className="usersActivity">
-                        <h1>168</h1>
-                        <h5>Total pitch recived today</h5>
-                        <h5> 10.02% this week</h5>
+                        <div className="users_delivery">
+                            <h1>1.2K</h1>
+                            <h5>Total Delivery</h5>
+                            <h5> <b>10.02%</b> this Month</h5>
+                        </div>
                     </div>
-                </>
                 }
             </div>
 

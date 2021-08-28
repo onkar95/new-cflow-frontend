@@ -93,7 +93,7 @@ const AddNewAddress = ({ setCurrentSection, formData, setFormData, getUser, getS
 
                         <Column className="inputs_coloum"
                         >
-
+                            <label htmlFor="">Building Name</label>
                             <Input
                                 placeholder='Building Name'
                                 id='name'
@@ -104,6 +104,7 @@ const AddNewAddress = ({ setCurrentSection, formData, setFormData, getUser, getS
                                 value={buildingname}
                                 style={{ marginBottom: "2rem" }}
                             />
+                            <label htmlFor="">Area/Street</label>
                             <Input
                                 placeholder='Area/Street'
                                 id='company'
@@ -115,6 +116,7 @@ const AddNewAddress = ({ setCurrentSection, formData, setFormData, getUser, getS
                                 autoComplete="off"
 
                             />
+                           <label htmlFor="">H No / Door No</label>
                             <Input
                                 placeholder='H No / Door No'
                                 id='title'
@@ -129,6 +131,7 @@ const AddNewAddress = ({ setCurrentSection, formData, setFormData, getUser, getS
 
                         <Column className="inputs_coloum">
 
+                           <label htmlFor="">City</label>
                             <Input
                                 placeholder='City'
                                 id='phone'
@@ -139,6 +142,7 @@ const AddNewAddress = ({ setCurrentSection, formData, setFormData, getUser, getS
                                 // disabled={editable}
                                 autoComplete="off"
                             />
+                           <label htmlFor="">Pincode</label>
                             <Input
                                 placeholder='Pincode'
                                 id='phone'
@@ -149,6 +153,7 @@ const AddNewAddress = ({ setCurrentSection, formData, setFormData, getUser, getS
                                 // disabled={editable}
                                 autoComplete="off"
                             />
+                           <label htmlFor="">Landmark</label>
                             <Input
                                 placeholder='Landmark'
                                 id='email'
@@ -166,6 +171,7 @@ const AddNewAddress = ({ setCurrentSection, formData, setFormData, getUser, getS
                         >
 
 
+                           <label htmlFor="">State</label>
                             <Input
                                 placeholder='State'
                                 id='wpp'
@@ -176,6 +182,7 @@ const AddNewAddress = ({ setCurrentSection, formData, setFormData, getUser, getS
                                 // disabled={editable}
                                 autoComplete="off"
                             />
+                           <label htmlFor="">Address Title</label>
                             <Input
                                 placeholder='Address Title'
                                 id='wpp'
@@ -211,7 +218,7 @@ const AddNewAddress = ({ setCurrentSection, formData, setFormData, getUser, getS
                         </span>
                         <h4>back</h4>
                     </div>
-                    <Row>
+                    <Row className="profile_section_heading">
                         <div style={{ margin: "10px" }}>
                             Add site Address
                         </div>

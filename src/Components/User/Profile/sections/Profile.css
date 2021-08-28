@@ -6,60 +6,137 @@
 .userdetail {
   display: flex;
   flex-direction: column;
+  width: 65%;
 }
 
 .userInfo {
   display: flex;
+  width: 57%;
 }
 
-.usersActivity {
+.users_pitch{
   margin: 10px;
+  border-radius: 6px;
+  /* border: #727272 solid 2px; */
+  width: 100%;
+  height: max-content;
+  background-color: #2d2d2d;
+  padding: 7px 31px;
+}
+.users_delivery {
+  border-radius: 6px;
+  margin: 10px;
+  /* border: #727272 solid 2px; */
+  width: 100%;
+  height: max-content;
+  background-color: #2d2d2d;
+  padding: 5px;
+}
+.users_pitch h1,.users_delivery h1{
+  color: #f5b81d;
+}
+.users_pitch h5 {
+   font-weight: 100;
+   font-size: 16px;
+}
+.users_delivery h5{
+  font-weight: 100;
+  font-size: 16px;
+}
+.users_delivery b{
+color: red;
+}
+.users_pitch b{
+  color: green;
+}
+  
+.usersActivity_div {
+  display: flex;
+  width: 40%;
+  /* justify-content: space-between; */
 }
 
 .info {
   display: flex;
-  margin: 0 10px;
-}
+  margin: 2px 21px;
+  width: max-content;
+  justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;}
 
 .info div {
   margin: 0 10px;
+  width: 100%;
+}
+.info div h3{
+ font-weight: normal;
+ color: #727272;
+
+}
+.info div h4{
+ font-weight: normal;
+ font-size: 16px;
 }
 
 .row {
   display: flex;
+  margin: 0 25px;
+  width: max-content;
+}
+.logout_btn button{
+  line-height: 1.3;
+    font-size: 20px;
+    margin-left: 20px;
 }
 
+.row h1{
+  font-weight: 500;
+  /* margin:0 23px; */
+}
+.row img{
+  margin: 20px 3px;
+}
 .row h3 {
-  display: flex;
-  background-color: transparent;
+  font-weight: 400;
   font-size: 20px;
-  text-decoration: none;
   border: orange solid 2px;
-  color: yellow;
+  color: #ffb600;
   margin-top: 6%;
   margin-left: 5px;
+  height: -moz-fit-content;
   height: fit-content;
   margin-top: 30px;
+  min-width: -moz-fit-content;
   min-width: fit-content;
-  padding: 3px;
-  border-radius: 10px;
+  padding: 3px 5px;
+  border-radius: 5px;
+  width: max-content;
 }
 
 
 .profile_sections {
-  background-color: black;
-  margin: 14px 0;
+  background-color: #161616;
+  margin: 25px 0;
 }
 
+.profilePercent {
+  width: 25%;
+  position: relative;
+  /* margin: 15px 25px; */
+}
 .profile_button {
   /* display: flex; */
   width: 100%;
-  /* margin: 20px 10px; */
+  margin: 0 10px;
   overflow: hidden;
 }
+
 ::-webkit-scrollbar {
-  width: 0;  /* Remove scrollbar space */
-  background: transparent;  /* Optional: just make scrollbar invisible */
+  width: 0;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */
 }
 
 .profile_button_nav {
@@ -105,6 +182,15 @@
   margin: 10px;
 }
 
+.input_orientation {
+  /* display: flex; */
+  margin: 30px 0;
+}
+
+.profile_section_heading {
+  margin: 20px 0;
+}
+
 .main_content input {
   /* width: fit-content; */
   width: 60%;
@@ -116,6 +202,10 @@
   width: 34%;
   font-size: 15px;
   margin: 10px;
+}
+
+.inputs_coloum label {
+  margin: 0 18px;
 }
 
 .inputs_coloum_group {
@@ -161,7 +251,7 @@
   transform: "translate(-50%)";
   cursor: not-allowed;
   background-color: "gray"
-  
+
 }
 
 .email,
@@ -187,16 +277,38 @@
 .addressBook {
   margin: 15px 70px;
 }
-.edit_icon{
+
+.addNewAddress_btn{
+  width: 420px;
+  display: flex;
+  padding: 30px;
+  justify-content: space-between;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: #141212;
+  margin: 0 123px;
+  align-items: center;  
+}
+.addNewAddress_btn button{
+  background-color: #f5b81d;
+  border: none;
+  line-height: 3;
+  border-radius: 10px;
+  margin: 24px 19px;
+  font-size: inherit;
+}
+.edit_icon {
   background-color: #f5b81d;
   padding: 8px;
   transform: "translate(-50%)";
   border-radius: 7px;
 }
-.delete_icon{
+
+.delete_icon {
   border: rgb(240, 16, 16) solid 2px;
   padding: 5px;
 }
+
 .saved_address {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -208,9 +320,10 @@
   display: flex;
   padding: 30px;
   justify-content: space-between;
-  border: #2d2d2d solid 2px;
+  /* border: #2d2d2d solid 2px; */
   margin: 10px;
-}
+  border-radius: 10px;
+  background-color: #141212;}
 
 .address_btn {
   display: flex;
@@ -225,6 +338,7 @@
 .feedback_section {
   display: flex;
   justify-content: space-between;
+  margin: 30px 0;
 }
 
 .rating_div {
@@ -255,6 +369,7 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
+  margin: 30px 0;
 }
 
 .help_ques_div {
@@ -268,7 +383,8 @@
 .help_text_div {
   width: 50%;
 }
-.help_btns{
+
+.help_btns {
   display: flex;
   margin: 5px;
 }
@@ -277,7 +393,8 @@
   .profile_button_nav button {
     margin: 0 10px;
   }
-  .help_btns div{
+
+  .help_btns div {
     left: 40%;
   }
 
@@ -285,7 +402,7 @@
 }
 
 @media(max-width:1050px) {
-  .help_btns div{
+  .help_btns div {
     left: 20%;
   }
 
@@ -293,15 +410,17 @@
     margin-left: -5px;
     font-size: 16px;
   }
+
   .info {
     /* display: flex;
     flex-direction: column; */
-    display: block;
+    /* display: block; */
     margin: 0 5px;
   }
 
   .info div {
     margin: 0;
+    width: auto;
   }
 
   element.style {
@@ -331,12 +450,30 @@
     border: #2d2d2d solid 2px;
     margin: 28px;
   }
+  .saved_address{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    margin: 10px 0px;
+  }
+  .addNewAddress_btn {
+    width: max-content;
+    display: flex;
+    padding: 30px;
+    justify-content: space-between;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #141212;
+    margin: 10px 27px;
+    align-items: center;
+}
 }
 
 @media(max-width:950px) {
-  .help_btns div{
+  .help_btns div {
     left: 10%;
   }
+
   .rating_div {
     margin: 0;
   }
@@ -351,7 +488,11 @@
 
   .saved_address {
     width: 100%;
-    margin: 3px 15px;
+    /* margin: 3px 15px; */
+    display: flex;
+  }
+  .addNewAddress_btn {
+    width: max-content;
   }
 
   .profile_button_nav button {
@@ -366,7 +507,7 @@
 
   .usersActivity,
   .userInfo h1 {
-    font-size: 15px;
+    font-size: 20px;
   }
 
   .profilePercent {
@@ -381,24 +522,33 @@
     margin-left: 5px;
     height: fit-content;
   }
+
+  .usersActivity_div {
+    display: block;
+  }
+
+  .usersActivity h5 {
+    font-size: 20px;
+    margin: 0;
+  }
 }
 
 @media(max-width:600px) {
-  .help_btns div{
+  .help_btns div {
     left: 0%;
     /* width: 80px; */
     padding: 12px;
   }
+
   .row {
     display: flex;
     flex-direction: column;
+    margin: 0;
   }
-
   .row h3 {
-    /* display: flex; */
+    padding: 0;
+    font-size: 13px;
     margin-top: 6%;
-    margin-left: 5px;
-    height: fit-content;
   }
 
   .profile_navbar {
@@ -409,12 +559,14 @@
   .userInfo {
     display: flex;
     justify-content: space-between;
+    width: 100%;
   }
 
   .userdetail {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 100%;
   }
 
   .userdetail div {
@@ -448,19 +600,31 @@
   }
 
   .address {
-    padding: 2px;
+    padding: 25px;
     display: flex;
-  }
-  .edit_icon{
+    margin: 28px;
+    background-color: #262424;
+    flex-wrap: wrap;
+    }
+    .addNewAddress_btn{
+      padding: 20px;
+      /* width: 70%; */
+      background-color: #262424;
+      /* flex-wrap: wrap; */
+    }
+
+  .edit_icon {
     background-color: #f5b81d;
     padding: 4px;
     transform: "translate(-50%)";
     border-radius: 7px;
   }
-  .delete_icon{
+
+  .delete_icon {
     border: rgb(240, 16, 16) solid 2px;
     padding: 0px;
   }
+
   .addressBook {
     margin: 0;
   }
@@ -529,6 +693,28 @@
   .usersActivity {
     border: #727272 solid 2px;
   }
+
+  .usersActivity h1 {
+    margin: 0;
+    font-size: 30px;
+  }
+  .usersActivity_div {
+   width: 100%;
+  }
+  .users_pitch{
+    margin: 5px;
+    width: 78%;
+  }
+  .users_delivery{
+    /* margin: 5px; */
+    width: 90%;
+  }
+
+
+  .usersActivity h5 {
+    font-size: 20px;
+    margin: 0;
+  }
 }
 
 @media(max-width:400px) {
@@ -537,4 +723,39 @@
     min-width: 75%;
   }
 
+  .usersActivity,
+  .userInfo h1 {
+    font-size: 20px;
+  }
+
+  .inputs_coloum {
+
+    margin: 0;
+  }
+
+  .main_content input {
+    margin: 15px 0;
+  }
+
+  .main_content label {
+    margin: 0;
+  }
+
+  .row h1 {
+    width: max-content;
+  }
+}
+
+@media(max-width:376px) {
+
+  .row h1 {
+    width: auto;
+    font-size: 14px;
+  }
+  .addNewAddress_btn div{
+    display: none;
+  }
+  .addNewAddress_btn{
+    background-color: transparent;
+  }
 }

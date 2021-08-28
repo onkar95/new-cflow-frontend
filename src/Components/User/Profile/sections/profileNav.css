@@ -1,0 +1,24 @@
+.custName_icon {
+    display: flex;
+}
+
+@media(max-width:1050px) {
+    /* .custName_icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } */
+    .profilePercent{
+        margin: 0;
+        width: 35%;
+    }
+    .row{
+        display: block;
+        
+    }
+    .info{
+        display: flex;
+        flex-wrap: wrap;
+        width: auto;
+    }
+}

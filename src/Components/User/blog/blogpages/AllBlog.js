@@ -3,7 +3,7 @@ import BlogBox from './BlogBox'
 import '../blog.css'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
-const AllBlog = ({  blogData, setCurrentSection, blogID }
+const AllBlog = ({  blogData, setCurrentSection, blogID,theme }
 ) => {
     const handleClick = () => {
         setCurrentSection(0)
@@ -32,7 +32,7 @@ const AllBlog = ({  blogData, setCurrentSection, blogID }
                 {
                     blogData && blogData.map((val, key) => (
                         <div onClick={() => showBlog(key)}>
-                            <BlogBox index={key} updated_at={val.updated_at} title={val.title} description={val.description} img={val.image.url} />
+                            <BlogBox theme={theme }index={key} updated_at={val.updated_at} title={val.title} description={val.description} img={val.image.url} />
                         </div>))
                 }
             </div>

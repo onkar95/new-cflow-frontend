@@ -64,7 +64,7 @@ const Feedback = ({ formData, setFormData, getUser, handleClickOpen }) => {
 
     return (
         <Column>
-            <Column>
+            <Column className="profile_section_heading">
                 Rate Us
             </Column>
             <hr style={{ width: "100%" }} />

@@ -49,7 +49,7 @@ const AddressBook = ({ setCurrentSection, siteNo, site, setSite, getSite, handle
     console.log(site, 'site');
     return (
         <div className="addressBook" >
-            <Row>
+            <Row className="profile_section_heading">
                 <Column className="inputs_coloum_group"> Site Address Book</Column>
             </Row>
             <hr style={{ width: "100%" }} />
@@ -83,15 +83,17 @@ const AddressBook = ({ setCurrentSection, siteNo, site, setSite, getSite, handle
 
 
             <ToastContainer />
-
-            <div
-                onClick={() => setCurrentSection(9)}
-                // className={`${disabled1 == 0 ? "disabled_save_butn_block  " : "disabled_save_butn "}`}
-                className="disabled_save_butn"
-            // disabled={!name || !wpp || !city || !pin || !state}
-            >
-                <img src={AddIcon} alt="" style={{ height: "20px", marginRight: "2px" }} />
-                Add New Address
+            <div className="addNewAddress_btn">
+                <div>
+                    add new site Address 
+                </div>
+                <button
+                    onClick={() => setCurrentSection(9)}
+                    // className="disabled_save_butn"
+                >
+                    <img src={AddIcon} alt="" style={{ height: "20px", marginRight: "2px" }} />
+                    New Address
+                </button>
             </div>
         </div >
     );

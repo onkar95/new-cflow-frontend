@@ -111,7 +111,7 @@ const CompanyDetails = ({ formData, setFormData, getUser, filled, setFilled, han
                     }}
                 >
 
-                    <Row>
+                    <Row className="profile_section_heading">
                         <Column className="inputs_coloum_group">company </Column>
                         <Column className="inputs_coloum_group">contact information</Column>
                         {/* <Column className="inputs_coloum_group">security</Column> */}

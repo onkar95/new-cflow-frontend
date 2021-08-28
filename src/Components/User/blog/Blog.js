@@ -16,7 +16,7 @@ import BlogDetails from "./blogpages/BlogDetails";
 import axios from "axios";
 
 
-function Blog({ setCurrentSectionRequest, site, getAllVendor, currentSection, setCurrentSection, setCurrentSectionProfile }
+function Blog({theme, setCurrentSectionRequest, site, getAllVendor, currentSection, setCurrentSection, setCurrentSectionProfile }
 ) {
     const [blogData, setBlogData] = useState([]);
     const [IdOfBlog, setIdOfBlog] = useState()
@@ -54,7 +54,7 @@ function Blog({ setCurrentSectionRequest, site, getAllVendor, currentSection, se
     return (
         <div className="blog">
             {currentSection === 0 && <BlogSections blogID={blogID} blogData={blogData} setCurrentSection={setCurrentSection} setCurrentSectionProfile={setCurrentSectionProfile} setOpenSaved={setOpenSaved} setCurrentSectionRequest={setCurrentSectionRequest} site={site} handleClickOpen={handleClickOpen} />}
-            {currentSection === 1 && <AllBlog blogID={blogID} IdOfBlog={IdOfBlog} blogData={blogData} setCurrentSection={setCurrentSection} setCurrentSectionProfile={setCurrentSectionProfile} setOpenSaved={setOpenSaved} setCurrentSectionRequest={setCurrentSectionRequest} site={site} handleClickOpen={handleClickOpen} />}
+            {currentSection === 1 && <AllBlog theme={theme} blogID={blogID} IdOfBlog={IdOfBlog} blogData={blogData} setCurrentSection={setCurrentSection} setCurrentSectionProfile={setCurrentSectionProfile} setOpenSaved={setOpenSaved} setCurrentSectionRequest={setCurrentSectionRequest} site={site} handleClickOpen={handleClickOpen} />}
             {currentSection === 2 && <BlogDetails blogID={blogID} IdOfBlog={IdOfBlog} blogData={blogData} setCurrentSection={setCurrentSection} setCurrentSectionProfile={setCurrentSectionProfile} setOpenSaved={setOpenSaved} setCurrentSectionRequest={setCurrentSectionRequest} site={site} handleClickOpen={handleClickOpen} />}
         </div>
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Like from '@material-ui/icons/Favorite';
 import "./blogBox.css";
 
-const BlogBox = ({title,description,updated_at,img,index}) => {
+const BlogBox = ({title,description,updated_at,img,index,theme}) => {
     const [PostedDay, setPostedDay] = useState();
 
     // console.log(props.title);

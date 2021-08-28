@@ -68,7 +68,7 @@ const AdressDetails = ({ formData, setFormData, getUser, filled, setFilled, hand
                         width: "100%",
                     }}
                 >
-                    <Row>
+                    <Row className="profile_section_heading">
                         <Column className="inputs_coloum_group">Address </Column>
                     </Row>
                     <hr />
