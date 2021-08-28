@@ -10,7 +10,7 @@ import EditIcon from "../../../../Images/newProfileYellow/Edit profile.png"
 
 require('dotenv').config()
 
-const CompanyDetails = ({ formData, setFormData, getUser, filled, setFilled, handleClickOpen }) => {
+const CompanyDetails = ({ theme, formData, setFormData, getUser, filled, setFilled, handleClickOpen }) => {
 
     const [userId, setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
     const [name, setName] = useState(formData?.company_detail_name ? formData?.company_detail_name : "");
@@ -122,12 +122,13 @@ const CompanyDetails = ({ formData, setFormData, getUser, filled, setFilled, han
                         <Column className="inputs_coloum">
                             <label htmlFor="">name</label>
                             <Input
+                                className={theme === true ? "white_input" : "dark_input"}
                                 style={!editable ? { color: "white" } : { color: "#727272" }}
                                 placeholder='Name'
                                 autoComplete="off"
+                                disabled={editable}
                                 id='name'
                                 type='text'
-                                disabled={editable}
                                 onChange={(e) => setName(e.target.value)}
                                 value={name}
                             />
@@ -136,6 +137,7 @@ const CompanyDetails = ({ formData, setFormData, getUser, filled, setFilled, han
                             <label htmlFor="">Company Name</label>
 
                             <Input
+                                className={theme === true ? "white_input" : "dark_input"}
                                 style={!editable ? { color: "white" } : { color: "#727272" }}
                                 placeholder='Company Name'
                                 autoComplete="off"
@@ -145,7 +147,6 @@ const CompanyDetails = ({ formData, setFormData, getUser, filled, setFilled, han
                                 value={companyName}
                                 disabled={editable}
                                 autoComplete="off"
-
                             />
 
 
@@ -154,6 +155,7 @@ const CompanyDetails = ({ formData, setFormData, getUser, filled, setFilled, han
                             <label htmlFor="">Phone no</label>
 
                             <Input
+                                className={theme === true ? "white_input" : "dark_input"}
                                 style={!editable ? { color: "white" } : { color: "#727272" }}
                                 placeholder='Phone No.'
                                 id='phone'
@@ -166,6 +168,7 @@ const CompanyDetails = ({ formData, setFormData, getUser, filled, setFilled, han
                             />
                             <label htmlFor="">Title</label>
                             <Input
+                                className={theme === true ? "white_input" : "dark_input"}
                                 style={!editable ? { color: "white" } : { color: "#727272" }}
                                 placeholder='Title'
                                 id='title'
@@ -180,6 +183,7 @@ const CompanyDetails = ({ formData, setFormData, getUser, filled, setFilled, han
                         <Column className="inputs_coloum">
                             <label htmlFor="">Email</label>
                             <Input
+                                className={theme === true ? "white_input" : "dark_input"}
                                 style={!editable ? { color: "white" } : { color: "#727272" }}
                                 placeholder='Email ID'
                                 id='email'
@@ -192,6 +196,7 @@ const CompanyDetails = ({ formData, setFormData, getUser, filled, setFilled, han
                             />
                             <label htmlFor="">Fax no </label>
                             <Input
+                                className={theme === true ? "white_input" : "dark_input"}
                                 style={!editable ? { color: "white" } : { color: "#727272" }}
                                 placeholder='Whatsapp No.'
                                 id='wpp'
@@ -208,11 +213,9 @@ const CompanyDetails = ({ formData, setFormData, getUser, filled, setFilled, han
 
                     <div
                         onClick={handleformdata}
-                        // className={`${disabled1 == 0 ? "disabled_save_butn_block  " : "disabled_save_butn "}`}
                         className="disabled_save_butn"
-                    // disabled={!name || !wpp || !city || !pin || !state}
                     >
-                        <img src={EditIcon} alt="" style={{height:"20px",marginRight:"2px"}}/>
+                        <img src={EditIcon} alt="" style={{ height: "20px", marginRight: "2px" }} />
                         {btnTxt}
                     </div>
                     <ToastContainer />
@@ -232,6 +235,7 @@ const CompanyDetails = ({ formData, setFormData, getUser, filled, setFilled, han
                         <Column className="inputs_coloum">
                             <label htmlFor="">name</label>
                             <Input
+                                className={theme === true ? "white_input" : "dark_input"}
                                 style={!editable ? { color: "white" } : { color: "#727272" }}
                                 placeholder='Name'
                                 autoComplete="off"
@@ -246,6 +250,7 @@ const CompanyDetails = ({ formData, setFormData, getUser, filled, setFilled, han
                             <label htmlFor="">Company Name</label>
 
                             <Input
+                                className={theme === true ? "white_input" : "dark_input"}
                                 style={!editable ? { color: "white" } : { color: "#727272" }}
                                 placeholder='Company Name'
                                 autoComplete="off"
@@ -271,6 +276,7 @@ const CompanyDetails = ({ formData, setFormData, getUser, filled, setFilled, han
                             <label htmlFor="">Phone no</label>
 
                             <Input
+                                className={theme === true ? "white_input" : "dark_input"}
                                 style={!editable ? { color: "white" } : { color: "#727272" }}
                                 placeholder='Phone No.'
                                 id='phone'
@@ -283,6 +289,7 @@ const CompanyDetails = ({ formData, setFormData, getUser, filled, setFilled, han
                             />
                             <label htmlFor="">Title</label>
                             <Input
+                                className={theme === true ? "white_input" : "dark_input"}
                                 style={!editable ? { color: "white" } : { color: "#727272" }}
                                 placeholder='Title'
                                 id='title'
@@ -295,6 +302,7 @@ const CompanyDetails = ({ formData, setFormData, getUser, filled, setFilled, han
                             />
                             <label htmlFor="">Email</label>
                             <Input
+                                className={theme === true ? "white_input" : "dark_input"}
                                 style={!editable ? { color: "white" } : { color: "#727272" }}
                                 placeholder='Email ID'
                                 id='email'
@@ -307,6 +315,7 @@ const CompanyDetails = ({ formData, setFormData, getUser, filled, setFilled, han
                             />
                             <label htmlFor="">Fax no </label>
                             <Input
+                                className={theme === true ? "white_input" : "dark_input"}
                                 style={!editable ? { color: "white" } : { color: "#727272" }}
                                 placeholder='Whatsapp No.'
                                 id='wpp'
@@ -327,7 +336,7 @@ const CompanyDetails = ({ formData, setFormData, getUser, filled, setFilled, han
                         className="disabled_save_butn"
                     // disabled={!name || !wpp || !city || !pin || !state}
                     >
-                        <img src={EditIcon} alt="" style={{height:"20px",marginRight:"2px"}}/>
+                        <img src={EditIcon} alt="" style={{ height: "20px", marginRight: "2px" }} />
                         {btnTxt}
                     </div>
                     <ToastContainer />

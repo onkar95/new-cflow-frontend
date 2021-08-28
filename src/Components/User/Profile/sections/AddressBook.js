@@ -8,7 +8,7 @@ import EditIcon from "../../../../Images/newProfileYellow/Edit profile.png"
 import DeleteIcon from "../../../../Images/newProfileYellow/Delete.png"
 import AddIcon from "../../../../Images/newProfileYellow/add new address.png"
 
-const AddressBook = ({ setCurrentSection, siteNo, site, setSite, getSite, handleClickOpen, setSiteNo }) => {
+const AddressBook = ({ theme, setCurrentSection, siteNo, site, setSite, getSite, handleClickOpen, setSiteNo }) => {
 
     const [userId, setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
 
@@ -57,7 +57,7 @@ const AddressBook = ({ setCurrentSection, siteNo, site, setSite, getSite, handle
             <div className="saved_address">
                 {
                     site?.map((value, index) => (
-                        <div className="address">
+                        <div className="address" style={theme === true ? { backgroundColor: "#c5c3c3" } : null}>
                             <div className="address_details">
                                 <h1>
                                     Site Address {index + 1}
@@ -83,13 +83,13 @@ const AddressBook = ({ setCurrentSection, siteNo, site, setSite, getSite, handle
 
 
             <ToastContainer />
-            <div className="addNewAddress_btn">
+            <div className="addNewAddress_btn" style={theme === true ? { backgroundColor: "#c5c3c3" } : null}>
                 <div>
-                    add new site Address 
+                    add new site Address
                 </div>
                 <button
                     onClick={() => setCurrentSection(9)}
-                    // className="disabled_save_butn"
+                // className="disabled_save_butn"
                 >
                     <img src={AddIcon} alt="" style={{ height: "20px", marginRight: "2px" }} />
                     New Address

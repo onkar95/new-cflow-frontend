@@ -63,6 +63,7 @@
 .blog_text img {
     height: 250px;
     width: 450px;
+    border-radius: 10px;
 }
 
 .blog_button {

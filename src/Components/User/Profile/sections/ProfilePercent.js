@@ -74,6 +74,7 @@ const ProfilePercent = ({ filled, height }) => {
         setPercent(temp ? temp * 5 : 0)
         setChartOptions({ ...chartOptions, series: [percent] })
     }, [filled])
+    console.log(chartOptions.series);
     return (
         <>
             {window.innerWidth>950?

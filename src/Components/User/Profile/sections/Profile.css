@@ -14,7 +14,7 @@
   width: 57%;
 }
 
-.users_pitch{
+.users_pitch {
   margin: 10px;
   border-radius: 6px;
   /* border: #727272 solid 2px; */
@@ -23,6 +23,7 @@
   background-color: #2d2d2d;
   padding: 7px 31px;
 }
+
 .users_delivery {
   border-radius: 6px;
   margin: 10px;
@@ -32,24 +33,30 @@
   background-color: #2d2d2d;
   padding: 5px;
 }
-.users_pitch h1,.users_delivery h1{
+
+.users_pitch h1,
+.users_delivery h1 {
   color: #f5b81d;
 }
+
 .users_pitch h5 {
-   font-weight: 100;
-   font-size: 16px;
-}
-.users_delivery h5{
   font-weight: 100;
   font-size: 16px;
 }
-.users_delivery b{
-color: red;
+
+.users_delivery h5 {
+  font-weight: 100;
+  font-size: 16px;
 }
-.users_pitch b{
+
+.users_delivery b {
+  color: red;
+}
+
+.users_pitch b {
   color: green;
 }
-  
+
 .usersActivity_div {
   display: flex;
   width: 40%;
@@ -63,40 +70,69 @@ color: red;
   justify-content: space-between;
   display: flex;
   justify-content: space-between;
-  width: 100%;}
+  width: 100%;
+}
 
 .info div {
   margin: 0 10px;
   width: 100%;
 }
-.info div h3{
- font-weight: normal;
- color: #727272;
+
+.info div h3 {
+  font-weight: normal;
+  color: #727272;
 
 }
-.info div h4{
- font-weight: normal;
- font-size: 16px;
+
+.info div h4 {
+  font-weight: normal;
+  font-size: 16px;
 }
 
 .row {
   display: flex;
   margin: 0 25px;
   width: max-content;
-}
-.logout_btn button{
-  line-height: 1.3;
-    font-size: 20px;
-    margin-left: 20px;
+
 }
 
-.row h1{
+.logout_btn button {
+  line-height: 1.3;
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.row h1 {
   font-weight: 500;
   /* margin:0 23px; */
 }
-.row img{
+
+.row img {
   margin: 20px 3px;
 }
+
+.hover_txt {
+  visibility: hidden;
+  top: 10%;
+  position: absolute;
+  color: rgb(243, 188, 70);
+  text-align: center;
+  font-size: 30px;
+  top: 26%;
+}
+.profileCompleted_icon{
+  /* height: 20px; */
+  display: flex;
+  align-items: center;
+}
+
+.profileCompleted_icon:hover .hover_txt  {
+  content: "verification completed";
+  display: block;
+  visibility: visible;
+  /* margin: 20px 3px; */
+}
+
 .row h3 {
   font-weight: 400;
   font-size: 20px;
@@ -125,6 +161,7 @@ color: red;
   position: relative;
   /* margin: 15px 25px; */
 }
+
 .profile_button {
   /* display: flex; */
   width: 100%;
@@ -278,7 +315,7 @@ color: red;
   margin: 15px 70px;
 }
 
-.addNewAddress_btn{
+.addNewAddress_btn {
   width: 420px;
   display: flex;
   padding: 30px;
@@ -287,9 +324,10 @@ color: red;
   border-radius: 10px;
   background-color: #141212;
   margin: 0 123px;
-  align-items: center;  
+  align-items: center;
 }
-.addNewAddress_btn button{
+
+.addNewAddress_btn button {
   background-color: #f5b81d;
   border: none;
   line-height: 3;
@@ -297,6 +335,7 @@ color: red;
   margin: 24px 19px;
   font-size: inherit;
 }
+
 .edit_icon {
   background-color: #f5b81d;
   padding: 8px;
@@ -323,7 +362,8 @@ color: red;
   /* border: #2d2d2d solid 2px; */
   margin: 10px;
   border-radius: 10px;
-  background-color: #141212;}
+  background-color: #141212;
+}
 
 .address_btn {
   display: flex;
@@ -388,6 +428,14 @@ color: red;
   display: flex;
   margin: 5px;
 }
+.dark_input{
+  color: #262424;
+  /* background-color: #f6f3f3; */
+}
+.white_input{
+  color: #000 !important;
+  background-color: #c5c3c3 !important;
+}
 
 @media(max-width:1150px) {
   .profile_button_nav button {
@@ -431,7 +479,6 @@ color: red;
     width: auto;
   }
 
-  .main_content {}
 
   .inputs_coloum {
     width: 30%;
@@ -450,12 +497,15 @@ color: red;
     border: #2d2d2d solid 2px;
     margin: 28px;
   }
-  .saved_address{
+  
+
+  .saved_address {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     width: 100%;
     margin: 10px 0px;
   }
+
   .addNewAddress_btn {
     width: max-content;
     display: flex;
@@ -466,7 +516,7 @@ color: red;
     background-color: #141212;
     margin: 10px 27px;
     align-items: center;
-}
+  }
 }
 
 @media(max-width:950px) {
@@ -491,6 +541,7 @@ color: red;
     /* margin: 3px 15px; */
     display: flex;
   }
+
   .addNewAddress_btn {
     width: max-content;
   }
@@ -531,6 +582,10 @@ color: red;
     font-size: 20px;
     margin: 0;
   }
+
+  .users_pitch {
+    width: 81%;
+  }
 }
 
 @media(max-width:600px) {
@@ -545,6 +600,7 @@ color: red;
     flex-direction: column;
     margin: 0;
   }
+
   .row h3 {
     padding: 0;
     font-size: 13px;
@@ -605,13 +661,14 @@ color: red;
     margin: 28px;
     background-color: #262424;
     flex-wrap: wrap;
-    }
-    .addNewAddress_btn{
-      padding: 20px;
-      /* width: 70%; */
-      background-color: #262424;
-      /* flex-wrap: wrap; */
-    }
+  }
+
+  .addNewAddress_btn {
+    padding: 20px;
+    /* width: 70%; */
+    background-color: #262424;
+    /* flex-wrap: wrap; */
+  }
 
   .edit_icon {
     background-color: #f5b81d;
@@ -698,14 +755,17 @@ color: red;
     margin: 0;
     font-size: 30px;
   }
+
   .usersActivity_div {
-   width: 100%;
+    width: 100%;
   }
-  .users_pitch{
+
+  .users_pitch {
     margin: 5px;
     width: 78%;
   }
-  .users_delivery{
+
+  .users_delivery {
     /* margin: 5px; */
     width: 90%;
   }
@@ -752,10 +812,12 @@ color: red;
     width: auto;
     font-size: 14px;
   }
-  .addNewAddress_btn div{
+
+  .addNewAddress_btn div {
     display: none;
   }
-  .addNewAddress_btn{
+
+  .addNewAddress_btn {
     background-color: transparent;
   }
 }

@@ -7,7 +7,7 @@ import LatestBlog from './LatestBlog'
 import './blogSection.css'
 import { Link, Redirect } from 'react-router-dom'
 
-const Blog = ({ setCurrentSection, blogData,blogID }
+const Blog = ({ setCurrentSection, blogData,blogID,theme }
 ) => {
     const [IdOfBlog, setIdOfBlog] = useState()
     const length = blogData.length;
@@ -40,7 +40,7 @@ const Blog = ({ setCurrentSection, blogData,blogID }
         <>
             {blogData != "" ?
 
-                <div className="Blog_section">
+                <div className="Blog_section" >
                     <div className="latestBlog" onClick={handelLatestBlog}>
                         <LatestBlog blog={blogData} blogID={blogID} />
                     </div>
@@ -49,8 +49,8 @@ const Blog = ({ setCurrentSection, blogData,blogID }
                             <h3>popular blogs:</h3>
                             <button onClick={viewAllBlogs}>view all</button>
                         </div>
-                        <div className="news" >
-                            <News blogID={blogID} setCurrentSection={setCurrentSection} blogData={blogData} />
+                        <div className="news"style={theme===true?{color:"black",backgroundColor:"white"}:{color:"white"}} >
+                            <News theme={theme} blogID={blogID} setCurrentSection={setCurrentSection} blogData={blogData} />
                         </div>
                     </div>
                     <div className="news_div">
@@ -58,8 +58,8 @@ const Blog = ({ setCurrentSection, blogData,blogID }
                             <h3>News:</h3>
                             <button onClick={viewAllBlogs}>view all</button>
                         </div>
-                        <div className="news" >
-                            <News  blogID={blogID} setCurrentSection={setCurrentSection} blogData={blogData} />
+                        <div className="news"style={theme===true?{color:"black",backgroundColor:"white"}:{color:"white"}} >
+                            <News  theme={theme} blogID={blogID} setCurrentSection={setCurrentSection} blogData={blogData} />
                         </div>
 
                     </div>
@@ -68,8 +68,8 @@ const Blog = ({ setCurrentSection, blogData,blogID }
                             <h3>Blogs</h3>
                             <button onClick={viewAllBlogs}>view all</button>
                         </div>
-                        <div className="news" >
-                            <News  blogID={blogID} setCurrentSection={setCurrentSection} blogData={blogData} />
+                        <div className="news"style={theme===true?{color:"black",backgroundColor:"white"}:{color:"white"}} >
+                            <News theme={theme} blogID={blogID} setCurrentSection={setCurrentSection} blogData={blogData} />
                         </div>
                     </div>
                 </div>

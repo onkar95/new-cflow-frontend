@@ -19,10 +19,10 @@ const BlogBox = ({title,description,updated_at,img,index,theme}) => {
         // }
     }, [])
     return (
-        <div >
-            <div className="boxes" id={index} >
-                <div className="box_title">
-                    <span>posted {PostedDay} day ago</span>
+        <div  >
+            <div className="boxes" id={index} style={theme===true?{color:"black"}:{color:"white"}} >
+                <div className="box_title" >
+                    <span >posted {PostedDay} day ago</span>
                     <h2>{title}</h2>
                 </div>
                 <div className="box_img">

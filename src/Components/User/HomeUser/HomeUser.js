@@ -39,6 +39,7 @@ import Navbar from './Navbar';
 import Header from './Header';
 import { getUser } from "./HomeUserApi"
 import Cart from '../Cart/Cart';
+import PopupSaved from  "../../Popup/popupsaved/PopupSaved"
 
 
 require('dotenv').config()
@@ -69,9 +70,13 @@ function HomeUser({ setIsUser, isSignup, setIsSignup }) {
     const [currentSectionEstimate, setCurrentSectionEstimate] = useState(0)
     const [currentSectionBlog, setCurrentSectionBlog] = useState(0)
     const [theme, setTheme] = useState(false);
+    const [title, setTitle] = useState("")
+    const [open, setOpen]=useState(false)
+
+
     console.log(theme);
     const DarkWhite = (val) => {
-            setTheme(val);
+        setTheme(val);
 
     }
     console.log(theme);
@@ -302,11 +307,21 @@ function HomeUser({ setIsUser, isSignup, setIsSignup }) {
 
     }, [])
 
+    // useEffect(() => {
+    //     if (currentSection === 5 && userId === undefined) {
+    //         setIsUser(true)
+    //         // alert('Please Login')
+    //         history.push('/auth-user')
+    //     }
+    // }, [currentSection])
     useEffect(() => {
         if (currentSection === 5 && userId === undefined) {
             setIsUser(true)
-            // alert('Please Login')
-            history.push('/auth-user')
+            setTitle("Please login first")
+            setOpen(true)
+            setTimeout(() => {
+                history.push('/auth-user')
+            }, 2000);
         }
     }, [currentSection])
 
@@ -335,7 +350,7 @@ function HomeUser({ setIsUser, isSignup, setIsSignup }) {
 
 
     return (
-        <div className="home-user-container" style={theme===true?{ backgroundColor: "white", color: "black" }:{ backgroundColor: "rgb(18 17 17)", color: "white" }} >
+        <div className="home-user-container" style={theme === true ? { backgroundColor: "white", color: "black" } : { backgroundColor: "rgb(18 17 17)", color: "white" }} >
 
             <Header DarkWhite={DarkWhite} currentSectionProfile={currentSectionProfile} setCurrentSectionProfile={setCurrentSectionProfile} setIsUser={setIsUser} sections={sections} currentSection={currentSection} LogoImage={LogoImage} setCurrentSection={setCurrentSection} setCurrentSectionProfile={setCurrentSectionProfile} setIsToggled={setIsToggled} getCart={getCart} />
             {
@@ -381,6 +396,7 @@ function HomeUser({ setIsUser, isSignup, setIsSignup }) {
             </div>
             <Notifications isToggled={isToggled} setIsToggled={setIsToggled} notification={notification} setCurrentSection={setCurrentSection} setTableSwitch={setTableSwitch} />
             <Footer setCurrentSection={setCurrentSection} currentSectionService={currentSectionService} setCurrentSectionService={setCurrentSectionService} />
+            <PopupSaved title={title} open={open} setOpen={setOpen} />
         </div>
     )
 }

@@ -6,7 +6,7 @@ import "./Profile.css"
 import EditIcon from "../../../../Images/newProfileYellow/Edit profile.png"
 
 require('dotenv').config()
-const AdressDetails = ({ formData, setFormData, getUser, filled, setFilled, handleClickOpen }) => {
+const AdressDetails = ({theme, formData, setFormData, getUser, filled, setFilled, handleClickOpen }) => {
 
     const [userId, setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
     const [building, setBuilding] = useState(formData?.company_building_name ? formData?.company_building_name : "");
@@ -17,19 +17,30 @@ const AdressDetails = ({ formData, setFormData, getUser, filled, setFilled, hand
     const [landmark, setLandmark] = useState(formData?.company_landmark ? formData?.company_landmark : "");
     const [state, setState] = useState(formData?.company_state ? formData?.company_state : "");
 
-    const [saved, setSaved] = useState("false");
-    const [disabled1, setDisabled] = useState("false");
-    const [Save, setSave] = useState("Save");
-    const [edit, setedit] = useState("Edit");
+    // const [saved, setSaved] = useState("false");
+    // const [disabled1, setDisabled] = useState("false");
+    // const [Save, setSave] = useState("Save");
+    // const [edit, setedit] = useState("Edit");
+
+    const [disabled1, setDisabled] = useState(0);
+    const [btnTxt, setBtnTxt] = useState("Edit");
+    const [editable, seteditable] = useState(true);
 
     const handleformdata = async (e) => {
         e.preventDefault();
-        setFormData({ ...formData, company_building_name: building, company_street: area, company_city: city, company_pincode: pin, company_house_no: house_door, company_landmark: landmark, company_state: state })
-        await axios.post(`${process.env.REACT_APP_URL}/user/updateUser/${userId}`, formData)
-            .then(response => {
-                getUser()
-            })
-        handleClickOpen();
+        seteditable(!editable)
+        if (!editable) {
+            setBtnTxt("Edit")
+            setFormData({ ...formData, company_building_name: building, company_street: area, company_city: city, company_pincode: pin, company_house_no: house_door, company_landmark: landmark, company_state: state })
+            await axios.post(`${process.env.REACT_APP_URL}/user/updateUser/${userId}`, formData)
+                .then(response => {
+                    getUser()
+                    setBtnTxt("Edit")
+                })
+            handleClickOpen();
+        } else {
+            setBtnTxt("Save")
+        }
     }
 
     useEffect(() => {
@@ -77,6 +88,9 @@ const AdressDetails = ({ formData, setFormData, getUser, filled, setFilled, hand
 
                             <label htmlFor="">Building Name</label>
                             <Input
+                            className={theme === true ? "white_input" : "dark_input"}
+                                autoComplete="off"
+                                disabled={editable}
                                 placeholder='Building Name'
                                 id='building'
                                 type='text'
@@ -85,6 +99,9 @@ const AdressDetails = ({ formData, setFormData, getUser, filled, setFilled, hand
                             />
                             <label htmlFor="">Area / Street</label>
                             <Input
+                            className={theme === true ? "white_input" : "dark_input"}
+                                autoComplete="off"
+                                disabled={editable}
                                 placeholder='Area / Street'
                                 id='area'
                                 type='text'
@@ -93,6 +110,9 @@ const AdressDetails = ({ formData, setFormData, getUser, filled, setFilled, hand
                             />
                             <label htmlFor="">H.No / Door.No</label>
                             <Input
+                            className={theme === true ? "white_input" : "dark_input"}
+                                autoComplete="off"
+                                disabled={editable}
                                 placeholder='H.No / Door.No'
                                 id='house_door'
                                 type='text'
@@ -103,6 +123,9 @@ const AdressDetails = ({ formData, setFormData, getUser, filled, setFilled, hand
                         <Column className="inputs_coloum">
                             <label htmlFor="">City</label>
                             <Input
+                            className={theme === true ? "white_input" : "dark_input"}
+                                autoComplete="off"
+                                disabled={editable}
                                 placeholder='City'
                                 id='city'
                                 type='text'
@@ -111,6 +134,9 @@ const AdressDetails = ({ formData, setFormData, getUser, filled, setFilled, hand
                             />
                             <label htmlFor="">PIN</label>
                             <Input
+                            className={theme === true ? "white_input" : "dark_input"}
+                                autoComplete="off"
+                                disabled={editable}
                                 placeholder='PIN'
                                 id='pin'
                                 type='text'
@@ -120,6 +146,9 @@ const AdressDetails = ({ formData, setFormData, getUser, filled, setFilled, hand
 
                             <label htmlFor="">Landmark</label>
                             <Input
+                            className={theme === true ? "white_input" : "dark_input"}
+                                autoComplete="off"
+                                disabled={editable}
                                 placeholder='Landmark'
                                 id='landmark'
                                 type='text'
@@ -131,6 +160,9 @@ const AdressDetails = ({ formData, setFormData, getUser, filled, setFilled, hand
                         <Column className="inputs_coloum">
                             <label htmlFor="">State</label>
                             <Input
+                            className={theme === true ? "white_input" : "dark_input"}
+                                autoComplete="off"
+                                disabled={editable}
                                 placeholder='State'
                                 id='state'
                                 type='text'
@@ -140,12 +172,12 @@ const AdressDetails = ({ formData, setFormData, getUser, filled, setFilled, hand
                         </Column>
                     </Row>
                     <div
-                       onClick={handleformdata}
-                       className="disabled_save_butn  "
-                       disabled={!building || !state || !area || !city || !house_door || !landmark | !pin}
+                        onClick={handleformdata}
+                        className="disabled_save_butn  "
+                        // disabled={!building || !state || !area || !city || !house_door || !landmark | !pin}
                     >
-                        <img src={EditIcon} alt="" style={{height:"20px",marginRight:"2px"}}/>
-                        {formData.email ? edit : Save}
+                        <img src={EditIcon} alt="" style={{ height: "20px", marginRight: "2px" }} />
+                        {btnTxt}
                     </div>
                 </form>
                 :
@@ -163,6 +195,9 @@ const AdressDetails = ({ formData, setFormData, getUser, filled, setFilled, hand
 
                             <label htmlFor="">Building Name</label>
                             <Input
+                            className={theme === true ? "white_input" : "dark_input"}
+                                autoComplete="off"
+                                disabled={editable}
                                 placeholder='Building Name'
                                 id='building'
                                 type='text'
@@ -171,15 +206,21 @@ const AdressDetails = ({ formData, setFormData, getUser, filled, setFilled, hand
                             />
                             <label htmlFor="">Area / Street</label>
                             <Input
+                            className={theme === true ? "white_input" : "dark_input"}
+                                autoComplete="off"
+                                disabled={editable}
                                 placeholder='Area / Street'
                                 id='area'
                                 type='text'
                                 onChange={(e) => setArea(e.target.value)}
                                 value={area}
                             />
-                            
+
                             <label htmlFor="">H.No / Door.No</label>
                             <Input
+                            className={theme === true ? "white_input" : "dark_input"}
+                                autoComplete="off"
+                                disabled={editable}
                                 placeholder='H.No / Door.No'
                                 id='house_door'
                                 type='text'
@@ -188,6 +229,9 @@ const AdressDetails = ({ formData, setFormData, getUser, filled, setFilled, hand
                             />
                             <label htmlFor="">City</label>
                             <Input
+                            className={theme === true ? "white_input" : "dark_input"}
+                                autoComplete="off"
+                                disabled={editable}
                                 placeholder='City'
                                 id='city'
                                 type='text'
@@ -196,6 +240,9 @@ const AdressDetails = ({ formData, setFormData, getUser, filled, setFilled, hand
                             />
                             <label htmlFor="">PIN</label>
                             <Input
+                            className={theme === true ? "white_input" : "dark_input"}
+                                autoComplete="off"
+                                disabled={editable}
                                 placeholder='PIN'
                                 id='pin'
                                 type='text'
@@ -205,6 +252,9 @@ const AdressDetails = ({ formData, setFormData, getUser, filled, setFilled, hand
 
                             <label htmlFor="">Landmark</label>
                             <Input
+                            className={theme === true ? "white_input" : "dark_input"}
+                                autoComplete="off"
+                                disabled={editable}
                                 placeholder='Landmark'
                                 id='landmark'
                                 type='text'
@@ -214,6 +264,9 @@ const AdressDetails = ({ formData, setFormData, getUser, filled, setFilled, hand
 
                             <label htmlFor="">State</label>
                             <Input
+                            className={theme === true ? "white_input" : "dark_input"}
+                                autoComplete="off"
+                                disabled={editable}
                                 placeholder='State'
                                 id='state'
                                 type='text'
@@ -223,12 +276,12 @@ const AdressDetails = ({ formData, setFormData, getUser, filled, setFilled, hand
                         </Column>
                     </Row>
                     <div
-                       onClick={handleformdata}
-                       className="disabled_save_butn  "
-                       disabled={!building || !state || !area || !city || !house_door || !landmark | !pin}
+                        onClick={handleformdata}
+                        className="disabled_save_butn  "
+                        // disabled={!building || !state || !area || !city || !house_door || !landmark | !pin}
                     >
-                        <img src={EditIcon} alt="" style={{height:"20px",marginRight:"2px"}}/>
-                        {formData.email ? edit : Save}
+                        <img src={EditIcon} alt="" style={{ height: "20px", marginRight: "2px" }} />
+                        {btnTxt}
                     </div>
                 </form>
 

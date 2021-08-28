@@ -12,7 +12,7 @@ import EditIcon from "../../../../Images/newProfileYellow/Edit profile.png"
 require('dotenv').config()
 
 
-const PersonalDetails = ({ formData, setFormData, getUser, filled, setFilled, handleClickOpen }) => {
+const PersonalDetails = ({ theme, formData, setFormData, getUser, filled, setFilled, handleClickOpen }) => {
     // console.log(formData);
 
     const [userId, setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
@@ -188,15 +188,16 @@ const PersonalDetails = ({ formData, setFormData, getUser, filled, setFilled, ha
                     <hr />
                     <Row className="input_orientation">
                         <Column className="inputs_coloum">
-                            <label htmlFor="">name</label>
+                            <label htmlFor="">Name</label>
                             <Input
                                 placeholder='Name'
+                                className={theme === true ? "white_input" : "dark_input"}
                                 id='name'
                                 type='text'
                                 disabled={editable}
                                 autoComplete="off"
                                 style={!editable ? { color: "white" } : { color: "#727272" }}
-
+                                className={theme === true ? "white_input" : "dark_input"}
                                 onChange={(e) => setName(e.target.value)}
                                 value={name}
                             />
@@ -204,7 +205,8 @@ const PersonalDetails = ({ formData, setFormData, getUser, filled, setFilled, ha
                             <label htmlFor="">Email</label>
 
                             <input
-                                className="email"
+                                // className="email"
+                                className={theme === true ? "white_input email" : "dark_input email"}
                                 autoComplete="off"
                                 placeholder='Email ID'
                                 id='email'
@@ -226,7 +228,8 @@ const PersonalDetails = ({ formData, setFormData, getUser, filled, setFilled, ha
 
                             <input
                                 // style={{ backgroundColor: "orange", color: "black" }}
-                                className="number"
+                                className={theme === true ? "white_input number" : "dark_input number"}
+                                // className="number"
                                 placeholder='Phone No.'
                                 autoComplete="off"
                                 disabled={editable}
@@ -242,6 +245,7 @@ const PersonalDetails = ({ formData, setFormData, getUser, filled, setFilled, ha
                             <label htmlFor="">Whatsapp no</label>
                             <Input
                                 placeholder='Whatsapp No.'
+                                className={theme === true ? "white_input" : "dark_input"}
                                 id='wpp'
                                 type='text'
                                 onChange={(e) => setWpp(e.target.value)}
@@ -253,9 +257,10 @@ const PersonalDetails = ({ formData, setFormData, getUser, filled, setFilled, ha
                             />
                         </Column>
                         <Column className="inputs_coloum">
-                            <label htmlFor="">PAssword</label>
+                            <label htmlFor="">Password</label>
                             <Input
                                 placeholder='State'
+                                className={theme === true ? "white_input" : "dark_input"}
                                 id='state'
                                 type='password'
                                 onChange={(e) => setState(e.target.value)}
@@ -276,7 +281,7 @@ const PersonalDetails = ({ formData, setFormData, getUser, filled, setFilled, ha
                         className="disabled_save_butn"
                     // disabled={!name || !wpp || !city || !pin || !state}
                     >
-                        <img src={EditIcon} alt="" style={{height:"20px",marginRight:"2px"}}/>
+                        <img src={EditIcon} alt="" style={{ height: "20px", marginRight: "2px" }} />
                         {btnTxt}
                     </div>
 
@@ -294,6 +299,7 @@ const PersonalDetails = ({ formData, setFormData, getUser, filled, setFilled, ha
                             <label htmlFor="">name</label>
                             <Input
                                 placeholder='Name'
+                                className={theme === true ? "white_input" : "dark_input"}
                                 id='name'
                                 type='text'
                                 disabled={editable}
@@ -308,6 +314,7 @@ const PersonalDetails = ({ formData, setFormData, getUser, filled, setFilled, ha
 
                             <input
                                 className="email"
+                                className={theme === true ? "white_input" : "dark_input"}
                                 autoComplete="off"
                                 placeholder='Email ID'
                                 id='email'
@@ -328,6 +335,7 @@ const PersonalDetails = ({ formData, setFormData, getUser, filled, setFilled, ha
 
                             <input
                                 // style={{ backgroundColor: "orange", color: "black" }}
+                                className={theme === true ? "white_input" : "dark_input"}
                                 className="number"
                                 placeholder='Phone No.'
                                 autoComplete="off"
@@ -344,6 +352,7 @@ const PersonalDetails = ({ formData, setFormData, getUser, filled, setFilled, ha
                             <label htmlFor="">Whatsapp no</label>
                             <Input
                                 placeholder='Whatsapp No.'
+                                className={theme === true ? "white_input" : "dark_input"}
                                 id='wpp'
                                 type='text'
                                 onChange={(e) => setWpp(e.target.value)}
@@ -368,6 +377,7 @@ const PersonalDetails = ({ formData, setFormData, getUser, filled, setFilled, ha
                             <label htmlFor="">PAssword</label>
                             <Input
                                 placeholder='State'
+                                className={theme === true ? "white_input" : "dark_input"}
                                 id='state'
                                 type='password'
                                 onChange={(e) => setState(e.target.value)}
@@ -386,7 +396,7 @@ const PersonalDetails = ({ formData, setFormData, getUser, filled, setFilled, ha
                         className="disabled_save_butn"
                     // disabled={!name || !wpp || !city || !pin || !state}
                     >
-                        <img src={EditIcon} alt="" style={{height:"20px",marginRight:"2px"}}/>
+                        <img src={EditIcon} alt="" style={{ height: "20px", marginRight: "2px" }} />
                         {btnTxt}
                     </div>
 

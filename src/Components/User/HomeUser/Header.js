@@ -8,6 +8,9 @@ import { useHistory } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { slide as Menu } from 'react-burger-menu'
+// import DarkTheme from "../../../Images/newProfile/Light.png"
+import lightIcon from "../../../Images/newProfile/Light.png"
+
 const Header = ({ currentSectionProfile, sections, currentSection, setIsUser, LogoImage, setCurrentSection, setCurrentSectionProfile, setIsToggled, getCart, DarkWhite }) => {
     const history = useHistory()
 
@@ -131,7 +134,7 @@ const Header = ({ currentSectionProfile, sections, currentSection, setIsUser, Lo
                     :
                     <Button className="login-btn-user" onClick={() => { setIsUser(true); history.push('/auth-user') }}>Login</Button>
                 }
-                <button onClick={changeTheme}>dark</button>
+                <img src={lightIcon} onClick={changeTheme} style={{width:"30px",height:"30px"}}/>
                 <ShoppingCartOutlinedIcon className="shopping-cart" onClick={handleCart} />
                 <HelpOutlineOutlinedIcon className="help-icon" onClick={() => { setCurrentSection(4); setCurrentSectionProfile(5) }} />
             </div>

@@ -17,7 +17,7 @@ import Submit from "../../../../Images/newProfileYellow/Send Message.png"
 
 require('dotenv').config()
 
-const Feedback = ({ formData, setFormData, getUser, handleClickOpen }) => {
+const Feedback = ({ theme, formData, setFormData, getUser, handleClickOpen }) => {
     const [stars, setStars] = useState(0);
     const [rate, setRate] = useState(0);
     const [userId, setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
@@ -146,11 +146,8 @@ const Feedback = ({ formData, setFormData, getUser, handleClickOpen }) => {
                     <h3>Feedback</h3>
                     <div style={{ width: "100%", display: "flex", flexDirection: "column" }}>
                         <Textarea
-                            style={{
-                                resize: "none",
-                                minHeight: "9rem",
-                                width: "65%"
-                            }}
+                            style={theme === true ? {
+                                backgroundColor: "#c5c3c3", resize: "none",minHeight: "9rem",width: "65%"} : {resize: "none",minHeight: "9rem",width: "65%"}}
                             className="feedback_form"
                             placeholder='Give Your Feedback Here'
                             onChange={(e) => setFeed(e.target.value)}
@@ -164,8 +161,8 @@ const Feedback = ({ formData, setFormData, getUser, handleClickOpen }) => {
                             Submit
                         </Button> */}
                         <div style={{
-                                margin:"5px",
-                            }}
+                            margin: "5px",
+                        }}
                             onClick={handleFeedback}
                             className="disabled_save_butn  "
                         >

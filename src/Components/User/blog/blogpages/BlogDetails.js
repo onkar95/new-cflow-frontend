@@ -6,7 +6,7 @@ import './blogSection.css'
 import News from './News';
 
 
-const BlogDetails = ({ setCurrentSection, blogData, blogID, IdOfBlog }) => {
+const BlogDetails = ({ setCurrentSection, blogData, blogID, IdOfBlog,theme }) => {
     const handleClick = () => {
         setCurrentSection(0)
     }
@@ -115,8 +115,8 @@ const BlogDetails = ({ setCurrentSection, blogData, blogID, IdOfBlog }) => {
                     <h3>Related Articles</h3>
                     <button onClick={viewAllBlogs}>view all</button>
                 </div>
-                <div className="news" >
-                    <News blogID={blogID} setCurrentSection={setCurrentSection} blogData={blogData} />
+                <div className="news"style={theme===true?{color:"black",backgroundColor:"white"}:{color:"white"}} >
+                    <News theme={theme} blogID={blogID} setCurrentSection={setCurrentSection} blogData={blogData} />
                 </div>
 
             </div>

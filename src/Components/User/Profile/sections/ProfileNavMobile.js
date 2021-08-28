@@ -1,12 +1,14 @@
 
 import React, { useEffect, useState } from "react";
 import { Column, GhostButton, Button } from "../../Styled/Styled";
-import "./Profile.css"
+// import "./Profile.css"
 import "./profileNav.css"
 import ProfilePercent from "./ProfilePercent";
 import { useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom"
-import completedIcon from "../../../../Images/newProfile/Verification pending.png"
+import pendingIcon from "../../../../Images/newProfile/Verification pending.png"
+import completedIcon from "../../../../Images/newProfile/Verification Completed.svg"
+import logutIcon from "../../../../Images/newProfileYellow/Logout.png"
 
 const ProfileNavMobile = (props) => {
     const dispatch = useDispatch()
@@ -44,12 +46,19 @@ const ProfileNavMobile = (props) => {
                     <div className="row">
                         <div style={{ display: "flex", width: "100%", alignItems: "center" }}>
                             <h1>Customer name</h1>
-                            <img src={completedIcon} style={{ width: "30px" }} alt="" />
-                            <h3>Customer</h3>
+                            {email != "" ? <div className="profileCompleted_icon" >
+                                <img src={completedIcon} style={{ width: "30px" }} alt="" />
+                                <span className="hover_txt"style={{ top: "20%" }}> profile is verified</span>
+                            </div>
+                                :
+                                <div className="profileCompleted_icon" >
+                                    <img src={pendingIcon} style={{ width: "30px", color: "gray" }} alt="" />
+                                    <span className="hover_txt" style={{ color: "gray", top: "20%" }}> profile is not verified</span>
+                                </div>}                            <h3>Customer</h3>
                         </div>
 
                         <div className="logout_btn">
-                            <Button>logout</Button>
+                        <Button onClick={handleLogout} style={{display:"flex",alignItems:"center",height:"50px"}}> <img src={logutIcon} alt="" /> logout</Button>
                         </div>
                     </div>
                 </div>
@@ -85,18 +94,18 @@ const ProfileNavMobile = (props) => {
                     :
                     <>
                         <div className="usersActivity_div">
-                        <div className="users_pitch">
-                            <h1>168</h1>
-                            <h5>Total pitch recived today</h5>
-                            <h5><b>10.02%</b>  this week</h5>
-                        </div>
+                            <div className="users_pitch">
+                                <h1>168</h1>
+                                <h5>Total pitch recived today</h5>
+                                <h5><b>10.02%</b>  this week</h5>
+                            </div>
 
-                        <div className="users_delivery">
-                            <h1>1.2K</h1>
-                            <h5>Total Delivery</h5>
-                            <h5> <b>10.02%</b> this Month</h5>
+                            <div className="users_delivery">
+                                <h1>1.2K</h1>
+                                <h5>Total Delivery</h5>
+                                <h5> <b>10.02%</b> this Month</h5>
+                            </div>
                         </div>
-                    </div>
                     </>
                 }
             </div>

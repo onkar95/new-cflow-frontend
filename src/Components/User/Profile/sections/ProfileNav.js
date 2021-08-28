@@ -5,7 +5,12 @@ import "./profileNav.css"
 import ProfilePercent from "./ProfilePercent";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import completedIcon from "../../../../Images/newProfile/Verification pending.png"
+import pendingIcon from "../../../../Images/newProfile/Verification pending.png"
+import logutIcon from "../../../../Images/newProfileYellow/Logout.png"
+import completedIcon from "../../../../Images/newProfile/Verification Completed.svg"
+import LogoutPopup from "../../../Vendor/Profile/sections/Logout/LogoutPopup";
+
+
 const ProfileNav = (props) => {
     const dispatch = useDispatch()
     const history = useHistory()
@@ -14,7 +19,11 @@ const ProfileNav = (props) => {
     const [wpp, setWpp] = useState(props.formData?.whatsapp_no ? props.formData?.whatsapp_no : "");
 
     const [filled, setFilled] = useState("")
+    const [open, setOpen]=useState(false);
 
+    const handleLogoutConfirmation = () => {
+        setOpen(true)
+    }
     const handleLogout = () => {
         props.function(6)
         dispatch({ type: "LOGOUT" })
@@ -41,7 +50,15 @@ const ProfileNav = (props) => {
                         <div className="row">
                             <div className="custName_icon">
                                 <h1>Customer name</h1>
-                                <img src={completedIcon} style={{ width: "fit-content" }} alt="" />
+                                {email!="" ? <div className="profileCompleted_icon" >
+                                    <img src={completedIcon} style={{ width: "40px",height:"30px" }} alt="" />
+                                    <span className="hover_txt" tyle={{ top:"35%" }}> profile is verified</span>
+                                </div>
+                                    :
+                                    <div className="profileCompleted_icon" >
+                                        <img src={pendingIcon} style={{ width: "40px",color:"gray",height:"30px" }} alt="" />
+                                        <span className="hover_txt" style={{ color:"gray",top:"30%" }}> profile is not verified</span>
+                                    </div>}
                             </div>
                             <h3>Customer</h3>
                         </div>
@@ -60,7 +77,7 @@ const ProfileNav = (props) => {
                             </div>
                         </div>
                         <div className="logout_btn">
-                            <Button onClick={handleLogout}>logout</Button>
+                            <Button onClick={handleLogoutConfirmation} style={{display:"flex",alignItems:"center"}}> <img src={logutIcon} alt="" /> logout</Button>
                         </div>
                     </div>
                 </div>
@@ -77,13 +94,13 @@ const ProfileNav = (props) => {
                     </div>
                     :
                     <div className="usersActivity_div">
-                        <div className="users_pitch">
+                        <div className="users_pitch" style={props.theme === true ? { backgroundColor: "#f6d7c7" } : { backgroundColor: "#2d2d2d" }}>
                             <h1>168</h1>
                             <h5>Total pitch recived today</h5>
                             <h5><b>10.02%</b>  this week</h5>
                         </div>
 
-                        <div className="users_delivery">
+                        <div className="users_delivery" style={props.theme === true ? { backgroundColor: "#f6d7c7" } : { backgroundColor: "#2d2d2d" }}>
                             <h1>1.2K</h1>
                             <h5>Total Delivery</h5>
                             <h5> <b>10.02%</b> this Month</h5>
@@ -91,6 +108,7 @@ const ProfileNav = (props) => {
                     </div>
                 }
             </div>
+            <LogoutPopup open={open} setOpen={setOpen} handleLogout={handleLogout} />
 
         </>
     );

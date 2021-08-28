@@ -46,7 +46,7 @@ const breakPoints2 = [
     { width: 1400, itemsToShow: 2 },
 ];
 
-const News = ({ blogData, setCurrentSection, blogID }) => {
+const News = ({ blogData, setCurrentSection, blogID,theme }) => {
     const [BlogData, setBlogData] = useState(blogData)
     const [BlogID, setBlogID] = useState()
     // const blogID = () => {
@@ -62,13 +62,14 @@ const News = ({ blogData, setCurrentSection, blogID }) => {
 
 
     return (
-        <div className="news_box">
+        <div className="news_box" style={theme===true?{color:"black"}:{color:"white"}} >
             {BlogData != "" ?
-                <Carousel breakPoints={window.innerWidth > 1230 ? breakPoints4 : (window.innerWidth > 990 ? breakPoints3 : (window.innerWidth > 730 ? breakPoints2 : breakPoints1))}>
+                
+                <Carousel  breakPoints={window.innerWidth > 1230 ? breakPoints4 : (window.innerWidth > 990 ? breakPoints3 : (window.innerWidth > 730 ? breakPoints2 : breakPoints1))}>
                     {/* {blogData.map((data, index) => ())} */}
                     {blogData && blogData.map((val, key) => (
-                        <div onClick={() => showBlog(key)}>
-                            <BlogBox index={key} updated_at={val.updated_at} title={val.title} description={val.description} img={val.image.url} />
+                        <div onClick={() => showBlog(key)}  >
+                            <BlogBox theme={theme} index={key} updated_at={val.updated_at} title={val.title} description={val.description} img={val.image.url} />
                         </div>
                     ))}
 

@@ -59,33 +59,31 @@ const Profile = ({ theme, toabout, setToabout, formData, setFormData, getUser, s
                 </h3>
             </div>
             {window.innerWidth > 600 ?
-                <ProfileNav formData={formData} current={currentSection} function={handleChange} filled={filled} />
+                <ProfileNav theme={theme} formData={formData} current={currentSection} function={handleChange} filled={filled} />
                 :
                 <ProfileNavMobile formData={formData} current={currentSection} function={handleChange} filled={filled} />
             }
-            <div className="profile_sections" style={theme === true ? { color: "white" } : null}>
+            <div className="profile_sections" style={theme === true ? { backgroundColor: "#f6f3f3", color: "black" } : { Color: "#2d2d2d" }}>
                 {window.innerWidth > 600 ?
                     <Row >
                         <div className="profile_button">
-                            <div className="profile_button_nav">
+                            <div className="profile_button_nav" style={theme === true ? { color: "black" } : { Color: "#2d2d2d" }}>
                                 <div className="profile_button_nav1">
-                                    <div className="profile_button_div" onClick={() => Element.scrollLeft = 100} style={currentSection === 0 ? { borderTop: "#ffb600 solid 3px", padding: "8px" } : { padding: "8px" }}>
-                                        {/* <div style={{ width: "50px" }}> */}
-                                            <img  src={currentSection === 0 ? profilSectionsYellow[0] : profilSections[0]} alt="" />
-                                        {/* </div> */}
+                                    <div className="profile_button_div" style={currentSection === 0 ? { borderTop: "#ffb600 solid 3px", padding: "25px 10px" } : { padding: "25px 10px" }}>
+                                        <img src={currentSection === 0 ? profilSectionsYellow[0] : profilSections[0]} alt="" />
                                         <button
                                             style={
                                                 currentSection === 0
                                                     ? {
                                                         color: "#ffb600",
                                                         borderStyle: "none",
-                                                    }
-                                                    : {}
+                                                    } : theme === true ? { color: "#2D2D2D" }
+                                                        : {}
                                             } onClick={() => setCurrentSection(0)}
 
                                         >personal details</button>
                                     </div>
-                                    <div className="profile_button_div" style={currentSection === 1 ? { borderTop: "#ffb600 solid 3px", padding: "8px" } : { padding: "8px" }}>
+                                    <div className="profile_button_div" style={currentSection === 1 ? { borderTop: "#ffb600 solid 3px", padding: "25px 10px" } : { padding: "25px 10px" }}>
 
                                         <img src={currentSection === 1 ? profilSectionsYellow[1] : profilSections[1]} alt="" />
                                         <button
@@ -94,11 +92,11 @@ const Profile = ({ theme, toabout, setToabout, formData, setFormData, getUser, s
                                                     ? {
                                                         color: "#ffb600",
                                                         borderStyle: "none",
-                                                    }
-                                                    : {}
+                                                    } : theme === true ? { color: "#2D2D2D" }
+                                                        : {}
                                             } onClick={() => setCurrentSection(1)}>company details</button>
                                     </div>
-                                    <div className="profile_button_div" style={currentSection === 2 ? { borderTop: "#ffb600 solid 3px", padding: "8px" } : { padding: "8px" }}>
+                                    <div className="profile_button_div" style={currentSection === 2 ? { borderTop: "#ffb600 solid 3px", padding: "25px 10px" } : { padding: "25px 10px" }}>
                                         <img src={currentSection === 2 ? profilSectionsYellow[2] : profilSections[2]} alt="" />
                                         <button
                                             style={
@@ -106,11 +104,11 @@ const Profile = ({ theme, toabout, setToabout, formData, setFormData, getUser, s
                                                     ? {
                                                         color: "#ffb600",
                                                         borderStyle: "none",
-                                                    }
-                                                    : {}
+                                                    } : theme === true ? { color: "#2D2D2D" }
+                                                        : {}
                                             } onClick={() => setCurrentSection(2)}>company adderess</button>
                                     </div>
-                                    <div className="profile_button_div" style={currentSection === 7 ? { borderTop: "#ffb600 solid 3px", padding: "8px" } : { padding: "8px" }}>
+                                    <div className="profile_button_div" style={currentSection === 7 ? { borderTop: "#ffb600 solid 3px", padding: "25px 10px" } : { padding: "25px 10px" }}>
                                         <img src={currentSection === 7 ? profilSectionsYellow[3] : profilSections[3]} alt="" />
                                         <button
                                             style={
@@ -118,13 +116,13 @@ const Profile = ({ theme, toabout, setToabout, formData, setFormData, getUser, s
                                                     ? {
                                                         color: "#ffb600",
                                                         borderStyle: "none",
-                                                    }
-                                                    : {}
+                                                    } : theme === true ? { color: "#2D2D2D" }
+                                                        : {}
                                             } onClick={() => setCurrentSection(7)}>Address Book</button>
                                     </div>
                                 </div>
                                 <div className="profile_button_nav2">
-                                    <div className="profile_button_div" style={currentSection === 3 ? { borderTop: "#ffb600 solid 3px", padding: "8px" } : { padding: "8px" }} >
+                                    <div className="profile_button_div" style={currentSection === 3 ? { borderTop: "#ffb600 solid 3px", padding: "25px 10px" } : { padding: "25px 10px" }} >
                                         <img src={currentSection === 3 ? profilSectionsYellow[4] : profilSections[4]} alt="" />
                                         <button
                                             style={
@@ -132,11 +130,11 @@ const Profile = ({ theme, toabout, setToabout, formData, setFormData, getUser, s
                                                     ? {
                                                         color: "#ffb600",
                                                         borderStyle: "none",
-                                                    }
-                                                    : {}
+                                                    } : theme === true ? { color: "#2D2D2D" }
+                                                        : {}
                                             } onClick={() => setCurrentSection(3)}>feedback</button>
                                     </div>
-                                    <div className="profile_button_div" style={currentSection === 5 ? { borderTop: "#ffb600 solid 3px", padding: "8px" } : { padding: "8px" }} >
+                                    <div className="profile_button_div" style={currentSection === 5 ? { borderTop: "#ffb600 solid 3px", padding: "25px 10px" } : { padding: "25px 10px" }} >
                                         <img src={currentSection === 5 ? profilSectionsYellow[5] : profilSections[5]} alt="" />
                                         <button
                                             style={
@@ -144,8 +142,8 @@ const Profile = ({ theme, toabout, setToabout, formData, setFormData, getUser, s
                                                     ? {
                                                         color: "#ffb600",
                                                         borderStyle: "none",
-                                                    }
-                                                    : {}
+                                                    } : theme === true ? { color: "#2D2D2D" }
+                                                        : {}
                                             } onClick={() => setCurrentSection(5)}>help</button>
                                     </div>
                                 </div>
@@ -153,9 +151,9 @@ const Profile = ({ theme, toabout, setToabout, formData, setFormData, getUser, s
                         </div>
                     </Row>
                     :
-                    <Row >
+                    <Row style={theme === true ? { color: "black" } : { Color: "#2d2d2d" }}>
                         <div className="profile_button">
-                            <div className="profile_button_div" style={currentSection === 0 ? { borderTop: "#ffb600 solid 3px", padding: "8px" } : { padding: "8px" }}>
+                            <div className="profile_button_div" style={currentSection === 0 ? { borderTop: "#ffb600 solid 3px", padding: "25px 10px" } : { padding: "25px 10px" }}>
                                 <img src={currentSection === 0 ? profilSectionsYellow[0] : profilSections[0]} alt="" />
                                 <button
                                     style={
@@ -169,7 +167,7 @@ const Profile = ({ theme, toabout, setToabout, formData, setFormData, getUser, s
 
                                 >personal details</button>
                             </div>
-                            <div className="profile_button_div" style={currentSection === 1 ? { borderTop: "#ffb600 solid 3px", padding: "8px" } : { padding: "8px" }}>
+                            <div className="profile_button_div" style={currentSection === 1 ? { borderTop: "#ffb600 solid 3px", padding: "25px 10px" } : { padding: "25px 10px" }}>
                                 <img src={currentSection === 1 ? profilSectionsYellow[1] : profilSections[1]} alt="" />
                                 <button
                                     style={
@@ -181,7 +179,7 @@ const Profile = ({ theme, toabout, setToabout, formData, setFormData, getUser, s
                                             : {}
                                     } onClick={() => setCurrentSection(1)}>company details</button>
                             </div>
-                            <div className="profile_button_div" style={currentSection === 2 ? { borderTop: "#ffb600 solid 3px", padding: "8px" } : { padding: "8px" }}>
+                            <div className="profile_button_div" style={currentSection === 2 ? { borderTop: "#ffb600 solid 3px", padding: "25px 10px" } : { padding: "25px 10px" }}>
                                 <img src={currentSection === 2 ? profilSectionsYellow[2] : profilSections[2]} alt="" />
                                 <button
                                     style={
@@ -193,7 +191,7 @@ const Profile = ({ theme, toabout, setToabout, formData, setFormData, getUser, s
                                             : {}
                                     } onClick={() => setCurrentSection(2)}>company adderess</button>
                             </div>
-                            <div className="profile_button_div" style={currentSection === 7 ? { borderTop: "#ffb600 solid 3px", padding: "8px" } : { padding: "8px" }}>
+                            <div className="profile_button_div" style={currentSection === 7 ? { borderTop: "#ffb600 solid 3px", padding: "25px 10px" } : { padding: "25px 10px" }}>
                                 <img src={currentSection === 7 ? profilSectionsYellow[3] : profilSections[3]} alt="" />
                                 <button
                                     style={
@@ -205,7 +203,7 @@ const Profile = ({ theme, toabout, setToabout, formData, setFormData, getUser, s
                                             : {}
                                     } onClick={() => setCurrentSection(7)}>Address Book</button>
                             </div>
-                            <div className="profile_button_div" style={currentSection === 3 ? { borderTop: "#ffb600 solid 3px", padding: "8px" } : { padding: "8px" }}>
+                            <div className="profile_button_div" style={currentSection === 3 ? { borderTop: "#ffb600 solid 3px", padding: "25px 10px" } : { padding: "25px 10px" }}>
                                 <img src={currentSection === 3 ? profilSectionsYellow[4] : profilSections[4]} alt="" />
                                 <button
                                     style={
@@ -217,7 +215,7 @@ const Profile = ({ theme, toabout, setToabout, formData, setFormData, getUser, s
                                             : {}
                                     } onClick={() => setCurrentSection(3)}>feedback</button>
                             </div>
-                            <div className="profile_button_div" style={currentSection === 5 ? { borderTop: "#ffb600 solid 3px", padding: "8px" } : { padding: "8px" }}>
+                            <div className="profile_button_div" style={currentSection === 5 ? { borderTop: "#ffb600 solid 3px", padding: "25px 10px" } : { padding: "25px 10px" }}>
                                 <img src={currentSection === 5 ? profilSectionsYellow[5] : profilSections[5]} alt="" />
                                 <button
                                     style={
@@ -233,20 +231,21 @@ const Profile = ({ theme, toabout, setToabout, formData, setFormData, getUser, s
                     </Row>
                 }
                 <Row>
-                    <Column className="main_content" >
-                        {currentSection === 0 && <PersonalDetails formData={formData} setFormData={setFormData} getUser={getUser} filled={filled} setFilled={setFilled} handleClickOpen={handleClickOpen} />}
-                        {currentSection === 1 && <CompanyDetails formData={formData} setFormData={setFormData} getUser={getUser} filled={filled} setFilled={setFilled} handleClickOpen={handleClickOpen} />}
-                        {currentSection === 2 && <AddressDetails formData={formData} setFormData={setFormData} getUser={getUser} filled={filled} setFilled={setFilled} handleClickOpen={handleClickOpen} />}
-                        {currentSection === 3 && <Feedback formData={formData} setFormData={setFormData} getUser={getUser} handleClickOpen={handleClickOpen} />}
+                    <Column className="main_content"  >
+                        {currentSection === 0 && <PersonalDetails theme={theme} formData={formData} setFormData={setFormData} getUser={getUser} filled={filled} setFilled={setFilled} handleClickOpen={handleClickOpen} />}
+                        {currentSection === 1 && <CompanyDetails theme={theme} formData={formData} setFormData={setFormData} getUser={getUser} filled={filled} setFilled={setFilled} handleClickOpen={handleClickOpen} />}
+                        {currentSection === 2 && <AddressDetails theme={theme} formData={formData} setFormData={setFormData} getUser={getUser} filled={filled} setFilled={setFilled} handleClickOpen={handleClickOpen} />}
+                        {currentSection === 3 && <Feedback theme={theme} formData={formData} setFormData={setFormData} getUser={getUser} handleClickOpen={handleClickOpen} />}
                         {currentSection === 4 && <AboutUs />}
-                        {currentSection === 5 && <Help />}
-                        {currentSection === 7 && <AddressBook setCurrentSection={setCurrentSection} site={site} setSiteNo={setSiteNo} site={site} siteNo={siteNo} setSite={setSite} getSite={getSite} handleClickOpen={handleClickOpen} />}
-                        {currentSection === 8 && <EditAddress setCurrentSection={setCurrentSection} site={site} siteNo={siteNo} setSite={setSite} getSite={getSite} handleClickOpen={handleClickOpen} />}
-                        {currentSection === 9 && <AddNewAddress setCurrentSection={setCurrentSection} formData={formData} setFormData={setFormData} getUser={getUser} getSite={getSite} handleClickOpen={handleClickOpen} />}
+                        {currentSection === 5 && <Help theme={theme} />}
+                        {currentSection === 7 && <AddressBook theme={theme} setCurrentSection={setCurrentSection} site={site} setSiteNo={setSiteNo} site={site} siteNo={siteNo} setSite={setSite} getSite={getSite} handleClickOpen={handleClickOpen} />}
+                        {currentSection === 8 && <EditAddress theme={theme} setCurrentSection={setCurrentSection} site={site} siteNo={siteNo} setSite={setSite} getSite={getSite} handleClickOpen={handleClickOpen} />}
+                        {currentSection === 9 && <AddNewAddress theme={theme} setCurrentSection={setCurrentSection} formData={formData} setFormData={setFormData} getUser={getUser} getSite={getSite} handleClickOpen={handleClickOpen} />}
                     </Column>
                     <PopupSaved title="Saved" handleClickOpen={handleClickOpen} open={open} setOpen={setOpen} />
                 </Row>
             </div >
+        
         </>
     );
 };
